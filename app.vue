@@ -5,15 +5,20 @@
     <h1 class="font">MACHINE LEARNING LIFECYCLE</h1><br><br>
   </div>
   <div>
-  <!-- <MetadataModal /> -->
-  <!-- <StepNode /> -->
-  <Card v-model="selectedStep" />
+    <!-- <MetadataModal /> -->
+    <!-- <StepNode /> -->
+    <Card v-model="selectedStep" />
   </div><br><br><br><br>
   <Table v-if="data_lifecycle_info" :data="data_lifecycle_info" />
   <p v-else>loading</p>
 
-<!-- <Table :data="table" /> -->
+  <!-- <Table :data="table" /> -->
   <!-- <input type="file" @change="handleTxtFileUpload" accept=".tsv" /> -->
+  <client-only placeholder="loading...">
+    <MetadataModal v-if="modal.showModal" v-model="modal.showModal" :title="modal.title" :description="modal.description"
+      :outcome="modal.outcome" :notes="modal.notes" />
+  </client-only>
+  <button class="btn" @click="toggleModal()">OPEN MODAL</button>
 </template>
 
 <script setup>
@@ -47,7 +52,7 @@ const fetchData = async () => {
 const fetchData_by_page = async (page_id) => {
   try {
     console.log(page_id);
-    const url= `https://docs.google.com/spreadsheets/d/e/2PACX-1vSD-IZNefqzcbHEDEvDQWSxClCuPeAhP6Jh0RwVBuSi8DdmRYsQs8UrPUv62__T9bgk0I1GhCSEY6Gn/pub?output=tsv&gid=${page_id}`
+    const url = `https://docs.google.com/spreadsheets/d/e/2PACX-1vSD-IZNefqzcbHEDEvDQWSxClCuPeAhP6Jh0RwVBuSi8DdmRYsQs8UrPUv62__T9bgk0I1GhCSEY6Gn/pub?output=tsv&gid=${page_id}`
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -60,6 +65,12 @@ const fetchData_by_page = async (page_id) => {
     return [];
   }
 };
+
+const modal = reactive({ showModal: false, title: "title", description: "description", outcome: "outcome", notes: "notes" })
+
+function toggleModal() {
+  modal.showModal = !modal.showModal
+}
 
 
 const parseText = (textData) => {
@@ -74,7 +85,7 @@ const parseText = (textData) => {
 async function fetchDataAndParse() {
   const data = await fetchData();
   if (data) {
-    const rows= parseText(data);
+    const rows = parseText(data);
     return rows
   } else {
     console.error('Error fetching or parsing data');
@@ -82,7 +93,7 @@ async function fetchDataAndParse() {
 }
 
 async function fetchDataAndParse_batched() {
-  let ids =  [0, 1021772098, 1947282418]
+  let ids = [0, 1021772098, 1947282418]
   // let ids =  [0, 1, 2]
   let results = [];
   for (let i = 0; i < ids.length; i++) {
@@ -110,33 +121,36 @@ html {
   font-family: "helvetica neue", helvetica, arial, sans-serif;
 }
 
-table ,th, td{
+table,
+th,
+td {
   border: 1px solid;
   font-size: 15px;
   width: 80;
   border-collapse: collapse;
-  
+
 }
 
-th
-    {
-      background-color:lightblue;
-      color:black;
-    }
+th {
+  background-color: lightblue;
+  color: black;
+}
 
 td {
   text-align: center;
   font-size: 15px
 }
-tr
-{
-  background-color:lightgray;
-  color:black;
+
+tr {
+  background-color: lightgray;
+  color: black;
 }
+
 .font {
   text-align: center;
   color: rgb(31, 83, 157);
 }
+
 .toppane {
   width: 100%;
   height: 100px;
@@ -154,6 +168,5 @@ tr
   height: 100vh;
   background-color: rgb(222, 252, 209);
 }
-
 </style>
 

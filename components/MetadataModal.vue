@@ -32,6 +32,7 @@
 
 <script setup>
 import app from '../app.vue'
+import { Modal } from 'bootstrap'
 
 const props = defineProps({
     title: String,
@@ -39,6 +40,24 @@ const props = defineProps({
     outcome: String,
     notes: String,
 })
+
+const emits = defineEmits(['update:modelValue'])
+
+let modal
+
+onMounted(() => {
+    modal = new Modal(document.getElementById('metadataModal'))
+    modal.show()
+    document.getElementById('metadataModal').addEventListener("hidden.bs.modal", hide)
+})
+
+onUnmounted(() => {
+    modal.hide()
+})
+
+function hide() {
+    emits('update:modelValue', false)
+}
 
 </script>
 
