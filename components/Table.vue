@@ -1,9 +1,12 @@
 <template>
     <table border="1">
         
+<<<<<<< Updated upstream
   <!-- <caption>
     ML Life Cycle Visualization <br>
   </caption> -->
+=======
+>>>>>>> Stashed changes
   <thead>
   <tr>
     <th>Title</th>
