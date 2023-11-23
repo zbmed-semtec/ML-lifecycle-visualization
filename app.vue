@@ -1,9 +1,9 @@
 <template>
-  <img class="img-fluid" :src="lifecycle" />
+  <lifecycle />
 </template>
 
 <script setup>
-import lifecycle from "/static/img/ML_lifecycle.svg";
+import lifecycle from "../static/img/ML_lifecycle.svg";
 </script>
 
 <style scoped>
