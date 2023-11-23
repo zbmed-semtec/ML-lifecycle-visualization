@@ -9,7 +9,7 @@
   <!-- <StepNode /> -->
   <lifecycle />
   </div><br><br><br><br>
-  <Table v-if="data_lifecycle_info" :data="table" />
+  <Table v-if="data_lifecycle_info" :data="data_lifecycle_info" />
   <p v-else>loading</p>
 
 <!-- <Table :data="table" /> -->
@@ -23,11 +23,10 @@ import StepNode from "~/components/StepNode.vue";
 import lifecycle from "../static/img/ML_lifecycle.svg";
 import Table from "~/components/Table.vue";
 
-const table = [[1,2,3,4,5,6,7,8],['a','b','c','d','e','f','g','h']];
-const selectedStep = ref(2)
-
 //Library for parsing the .csv file
 import Papa from "papaparse";
+
+const selectedStep = ref(2)
 
 const fetchData = async () => {
   try {

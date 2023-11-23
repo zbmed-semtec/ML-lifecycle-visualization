@@ -1,12 +1,6 @@
 <template>
     <table border="1">
         
-<<<<<<< Updated upstream
-  <!-- <caption>
-    ML Life Cycle Visualization <br>
-  </caption> -->
-=======
->>>>>>> Stashed changes
   <thead>
   <tr>
     <th>Title</th>
@@ -21,7 +15,14 @@
   </thead>
   <tbody>
     <tr v-for="row of data">
-      <td v-for="cell of row">{{cell}}</td>
+      <td>{{row["NodeID"]}}</td>
+      <td>{{row["FAIR Principles"]}}</td>
+      <td>{{row["Best Practices"]}}</td>
+      <td>{{row["Metadata schemas"]}}</td>
+      <td>{{row["Services"]}}</td>
+      <td>{{row["What do you need to do here"] }}</td>
+      <td>{{row["Resources affected by FAIR"] }}</td>
+      <td>{{row["Notes"]}}</td>
     </tr>
 
   <!-- <tr>
