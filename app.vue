@@ -17,9 +17,6 @@
 </template>
 
 <script setup>
-//Library for parsing the .csv file
-import Papa from "papaparse";
-
 import Selector from "~/components/Selector.vue";
 import MetadataModal from "~/components/MetadataModal.vue";
 import StepNode from "~/components/StepNode.vue";
@@ -77,8 +74,6 @@ data_lifecycle_info.value = await fetchDataAndParse();
 html {
   font-family: "helvetica neue", helvetica, arial, sans-serif;
 }
-<<<<<<< Updated upstream
-=======
 
 table ,th, td{
   border: 1px solid;
@@ -125,6 +120,5 @@ tr
   background-color: rgb(222, 252, 209);
 }
 
->>>>>>> Stashed changes
 </style>
 
