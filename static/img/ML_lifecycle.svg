@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" style="background-color:#fff" xmlns:xlink="http://www.w3.org/1999/xlink" width="677" height="1020" viewBox="-0.5 -0.5 677 1020">
+  <g data-step="1">
   <rect x="247" width="200" height="80" rx="12" ry="12" fill="#fff2cc" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
@@ -16,6 +17,7 @@
     </foreignObject>
     <text x="347" y="45" fill="#1A1A1A" font-family="Verdana" font-size="15" text-anchor="middle">1. Problem Definition...</text>
   </switch>
+  </g>
   <path d="M192 250v91.76" fill="none" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke"/>
   <path d="m192 347.76-4-8 4 2 4-2Z" fill="#666" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
   <rect x="94.5" y="350" width="195" height="80" rx="12" ry="12" fill="#d5e8d4" pointer-events="all"/>

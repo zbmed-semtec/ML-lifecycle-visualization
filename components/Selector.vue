@@ -19,7 +19,7 @@
 <script setup>
 defineProps(['modelValue'])
 defineEmits(['update:modelValue'])
-const options = Array.from({length: 10}, (_, index) => index);
+const options = Array.from({length: 10}, (_, index) => `${index+1}`);
 </script>
 
 <style scoped>

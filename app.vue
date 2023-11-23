@@ -7,7 +7,7 @@
   <div>
   <!-- <MetadataModal /> -->
   <!-- <StepNode /> -->
-  <lifecycle />
+  <Card v-model="selectedStep" />
   </div><br><br><br><br>
   <Table v-if="data_lifecycle_info" :data="data_lifecycle_info_sheet1" />
   <p v-else>loading</p>
@@ -20,17 +20,18 @@
 import Selector from "~/components/Selector.vue";
 import MetadataModal from "~/components/MetadataModal.vue";
 import StepNode from "~/components/StepNode.vue";
-import lifecycle from "../static/img/ML_lifecycle.svg";
+// import lifecycle from "../static/img/ML_lifecycle.svg";
+import Card from "~/components/Card.vue";
 import Table from "~/components/Table.vue";
 
 //Library for parsing the .csv file
 import Papa from "papaparse";
 
-const selectedStep = ref(2)
+const selectedStep = ref("2")
 
 const fetchData = async () => {
   try {
-    const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vSD-IZNefqzcbHEDEvDQWSxClCuPeAhP6Jh0RwVBuSi8DdmRYsQs8UrPUv62__T9bgk0I1GhCSEY6Gn/pub?output=tsv');
+    const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vSD-IZNefqzcbHEDEvDQWSxClCuPeAhP6Jh0RwVBuSi8DdmRYsQs8UrPUv62__T9bgk0I1GhCSEY6Gn/pub?output=tsv&gid=0');
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
