@@ -1,6 +1,9 @@
 <template>
     <table border="1">
         
+  <!-- <caption>
+    ML Life Cycle Visualization <br>
+  </caption> -->
   <thead>
   <tr>
     <th>Title</th>
