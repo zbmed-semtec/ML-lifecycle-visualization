@@ -20,6 +20,7 @@
   </g>
   <path d="M192 250v91.76" fill="none" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke"/>
   <path d="m192 347.76-4-8 4 2 4-2Z" fill="#666" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
+  <g data-step="3">
   <rect x="94.5" y="350" width="195" height="80" rx="12" ry="12" fill="#d5e8d4" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
@@ -37,9 +38,11 @@
     </foreignObject>
     <text x="192" y="395" fill="#1A1A1A" font-family="Verdana" font-size="15" text-anchor="middle">3. Data Preprocessing...</text>
   </switch>
+  </g>
   <path d="M507 250v31.76" fill="none" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke"/>
   <path d="m507 287.76-4-8 4 2 4-2Z" fill="#666" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
   <rect x="407" y="170" width="200" height="80" rx="12" ry="12" fill="#dae8fc" pointer-events="all"/>
+  <g data-step="4">
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
       <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:198px;height:1px;padding-top:210px;margin-left:408px">
@@ -56,8 +59,10 @@
     </foreignObject>
     <text x="507" y="215" fill="#1A1A1A" font-family="Verdana" font-size="15" text-anchor="middle">4. Method Selection...</text>
   </switch>
+  </g>
   <path d="M507 370v31.76" fill="none" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke"/>
   <path d="m507 407.76-4-8 4 2 4-2Z" fill="#666" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
+  <g data-step="5">
   <rect x="407" y="290" width="200" height="80" rx="12" ry="12" fill="#dae8fc" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
@@ -79,9 +84,11 @@
     </foreignObject>
     <text x="507" y="335" fill="#1A1A1A" font-family="Verdana" font-size="15" text-anchor="middle">5. Model Creation...</text>
   </switch>
+  </g>
   <path d="m507.01 491-.01 40H347v40.76" fill="none" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke"/>
   <path d="m347 577.76-4-8 4 2 4-2Z" fill="#666" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
   <path d="M407 450.5h-39.5L367 400" fill="none" stroke="#000" stroke-miterlimit="10" stroke-dasharray="1 1" pointer-events="stroke"/>
+  <g data-step="6">
   <rect x="407" y="410" width="200.01" height="81" rx="12.15" ry="12.15" fill="#dae8fc" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
@@ -99,8 +106,10 @@
     </foreignObject>
     <text x="507" y="455" fill="#1A1A1A" font-family="Verdana" font-size="15" text-anchor="middle">6. Model Evaluation...</text>
   </switch>
+  </g>
   <path d="M347 660v50h175v41.76" fill="none" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke"/>
   <path d="m522 757.76-4-8 4 2 4-2Z" fill="#666" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
+  <g data-step="7">
   <rect x="247" y="580" width="200" height="80" rx="12" ry="12" fill="#a9c4eb" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
@@ -114,6 +123,8 @@
     </foreignObject>
     <text x="347" y="625" fill="#1A1A1A" font-family="Verdana" font-size="15" text-anchor="middle">7. Model Validation</text>
   </switch>
+  </g>
+  <g data-step="8">
   <rect x="77" y="760" width="230" height="90" rx="13.5" ry="13.5" fill="#e1d5e7" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
@@ -127,8 +138,10 @@
     </foreignObject>
     <text x="192" y="810" fill="#1A1A1A" font-family="Verdana" font-size="15" text-anchor="middle">8. Model Deployment &amp; Monitoring</text>
   </switch>
+  </g>
   <path d="M522 850v40H347v31.76" fill="none" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke"/>
   <path d="m347 927.76-4-8 4 2 4-2Z" fill="#666" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
+  <g data-step="9">
   <rect x="407" y="760" width="230" height="90" rx="13.5" ry="13.5" fill="#ffe6cc" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
@@ -146,8 +159,10 @@
     </foreignObject>
     <text x="522" y="810" fill="#1A1A1A" font-family="Verdana" font-size="15" text-anchor="middle">9. Model Storage &amp; Sharing...</text>
   </switch>
+  </g>
   <path d="M252 975H7V210h83.63" fill="none" stroke="#000" stroke-miterlimit="10" stroke-dasharray="8 8" pointer-events="stroke"/>
   <path d="m95.88 210-7 3.5 1.75-3.5-1.75-3.5Z" stroke="#000" stroke-miterlimit="10" pointer-events="all"/>
+  <g data-step="10">
   <rect x="252" y="930" width="190" height="90" rx="13.5" ry="13.5" fill="#f0a30a" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
@@ -165,6 +180,8 @@
     </foreignObject>
     <text x="347" y="980" fill="#1A1A1A" font-family="Verdana" font-size="15" text-anchor="middle">10. Model (Re)Use...</text>
   </switch>
+  </g>
+  <g data-step="2">
   <rect x="97" y="170" width="190" height="80" rx="12" ry="12" fill="#d5e8d4" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
@@ -178,6 +195,7 @@
     </foreignObject>
     <text x="192" y="215" fill="#1A1A1A" font-family="Verdana" font-size="15" text-anchor="middle">2. Data Gathering</text>
   </switch>
+  </g>
   <path d="M347 80v50H192v31.76" fill="none" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke"/>
   <path d="m192 167.76-4-8 4 2 4-2Z" fill="#666" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
   <path d="M347 80v50h160v31.76" fill="none" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke"/>
