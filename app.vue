@@ -1,10 +1,10 @@
 <template>
-  <StepNode />
   <lifecycle />
   <input type="file" @change="handleTxtFileUpload" accept=".tsv" />
 </template>
 
 <script setup>
+import MetadataModal from "~/components/MetadataModal.vue";
 import StepNode from "~/components/StepNode.vue";
 import lifecycle from "../static/img/ML_lifecycle.svg";
 
