@@ -3,10 +3,12 @@
       <label>
          Select a step:
          <select
-            :value="value"
-            @change="$emit('update:value', $event.target.value)"
+            @change="$emit('update:modelValue', $event.target.value)"
          >
-            <option v-for="option of options" :value="option">
+            <option
+               v-for="option of options"
+               :value="option" :selected="option === modelValue ? true : false"
+            >
                {{ option }}
             </option>
          </select>
@@ -15,8 +17,8 @@
 </template>
 
 <script setup>
-defineProps(['value'])
-defineEmits(['update:value'])
+defineProps(['modelValue'])
+defineEmits(['update:modelValue'])
 const options = Array.from({length: 10}, (_, index) => index);
 </script>
 

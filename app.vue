@@ -1,5 +1,5 @@
 <template>
-  <Selector v-model:value="selectedStep" />
+  <Selector v-model="selectedStep" />
   <p>Selected step: {{ selectedStep }}</p>
   <lifecycle />
   <Table :data="table" />
