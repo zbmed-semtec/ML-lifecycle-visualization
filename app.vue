@@ -15,7 +15,7 @@
   <!-- <Table :data="table" /> -->
   <!-- <input type="file" @change="handleTxtFileUpload" accept=".tsv" /> -->
   <client-only placeholder="loading...">
-    <MetadataModal v-if="modal.showModal" v-model="modal.showModal" :title="modal.title" :description="modal.description"
+    <MetadataModal v-if="selectedStep >= 0" v-model="selectedStep" :title="modal.title" :description="modal.description"
       :outcome="modal.outcome" :notes="modal.notes" />
   </client-only>
   <button class="btn" @click="toggleModal()">OPEN MODAL</button>
@@ -32,7 +32,7 @@ import Table from "~/components/Table.vue";
 //Library for parsing the .csv file
 import Papa from "papaparse";
 
-const selectedStep = ref("2")
+const selectedStep = ref("-1")
 
 const fetchData = async () => {
   try {

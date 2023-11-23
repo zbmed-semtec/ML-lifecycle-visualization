@@ -56,7 +56,7 @@ onUnmounted(() => {
 })
 
 function hide() {
-    emits('update:modelValue', false)
+    emits('update:modelValue', -1)
 }
 
 </script>
