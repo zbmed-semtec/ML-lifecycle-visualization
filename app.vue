@@ -44,9 +44,26 @@ const fetchData = async () => {
   }
 };
 
+const fetchData_by_page = async (page_id) => {
+  try {
+    console.log(page_id);
+    const url= `https://docs.google.com/spreadsheets/d/e/2PACX-1vSD-IZNefqzcbHEDEvDQWSxClCuPeAhP6Jh0RwVBuSi8DdmRYsQs8UrPUv62__T9bgk0I1GhCSEY6Gn/pub?output=tsv&gid=${page_id}`
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.text();
+    // console.log(data);
+    return data;
+  } catch (error) {
+    console.error('Error fetching data from Google Sheets:', error);
+    return [];
+  }
+};
+
 
 const parseText = (textData) => {
-  const rows = Papa.parse(textData.trim(), {
+  const rows = Papa.parse(textData.toString().trim(), {
     header: true,
     skipEmptyLines: true,
   }).data;
@@ -62,11 +79,29 @@ async function fetchDataAndParse() {
   } else {
     console.error('Error fetching or parsing data');
   }
-  
+}
+
+async function fetchDataAndParse_batched() {
+  let ids =  [0, 1021772098, 1947282418]
+  // let ids =  [0, 1, 2]
+  let results = [];
+  for (let i = 0; i < ids.length; i++) {
+    // console.log(ids[i]);
+    const data = await fetchData_by_page(ids[i]);
+
+    if (data) {
+      const rows = parseText(data);
+      results.push(rows);
+    } else {
+      console.error(`Error fetching or parsing data of sheet`);
+    }
+  }
+
+  return results;
 }
 
 const data_lifecycle_info = ref(null)
-data_lifecycle_info.value = await fetchDataAndParse();
+data_lifecycle_info.value = await fetchDataAndParse_batched();
 
 </script>
 
