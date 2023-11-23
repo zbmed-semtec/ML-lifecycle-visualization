@@ -9,7 +9,7 @@
   <!-- <StepNode /> -->
   <lifecycle />
   </div><br><br><br><br>
-  <Table v-if="data_lifecycle_info" :data="data_lifecycle_info" />
+  <Table v-if="data_lifecycle_info" :data="data_lifecycle_info_sheet1" />
   <p v-else>loading</p>
 
 <!-- <Table :data="table" /> -->
@@ -100,7 +100,13 @@ async function fetchDataAndParse_batched() {
 }
 
 const data_lifecycle_info = ref(null)
+const data_lifecycle_info_sheet1 = ref(null)
+const data_lifecycle_info_sheet2 = ref(null)
+const data_lifecycle_info_sheet3 = ref(null)
 data_lifecycle_info.value = await fetchDataAndParse_batched();
+data_lifecycle_info_sheet1.value = data_lifecycle_info.value[0];
+data_lifecycle_info_sheet2.value = data_lifecycle_info.value[1];
+data_lifecycle_info_sheet3.value = data_lifecycle_info.value[2];
 
 </script>
 
