@@ -20,6 +20,7 @@
         v-model="selectedStep"
         :modalData="getMetadataById(selectedStep)"
         :tableData="data_lifecycle_info_sheet1"
+        :edgesData="data_lifecycle_info_sheet3"
       />
     </client-only>
   </div>

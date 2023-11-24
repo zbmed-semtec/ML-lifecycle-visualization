@@ -29,6 +29,26 @@
                     <div class="table-wrapper">
                         <Table v-if="tableData" :data="tableData" :selected-step="modelValue" />
                     </div>
+                    <div class="table-wrapper">
+                        Next steps:
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">To</th>
+                                    <th scope="col">Comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template v-for="edge of edgesData">
+                                    <tr v-if="edge['Start_node'] == modelValue">
+                                    <!-- TODO: Replace End_node with the corresponding node name -->
+                                    <td>{{ edge['End_node'] }}</td>
+                                    <td>{{ edge['Comment'] }}</td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -43,6 +63,7 @@ import Table from '~/components/Table.vue'
 const props = defineProps({
     modalData: Array,
     tableData: Array,
+    edgesData: Array,
     modelValue: String,
 })
 
