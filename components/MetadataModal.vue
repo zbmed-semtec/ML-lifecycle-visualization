@@ -89,10 +89,6 @@ else {
     bgAltColor[1] -= 5
 }
 bgAltColor = "#" + convert.hsl.hex(bgAltColor)
-
-console.log(bgAltColor)
-console.log(bgColor)
-
 const emits = defineEmits(['update:modelValue'])
 
 let modal

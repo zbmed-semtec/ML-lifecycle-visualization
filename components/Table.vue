@@ -53,7 +53,6 @@
 defineProps(['data', 'selectedStep', 'overrideColor'])
 
 function getRowColorClass(row) {
-  console.log(row.NodeID);
   switch (row.NodeID) {
     case '1':
       return 'row-id-1';
