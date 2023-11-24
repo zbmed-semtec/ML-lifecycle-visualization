@@ -64,7 +64,7 @@ function getRowColorClass(row) {
 
 <style scoped>
 
-table ,th, td{
+/* table ,th, td{
   border: 1px solid;
   font-size: 18px;
   border-collapse: collapse;
@@ -88,12 +88,12 @@ td {
   text-align: center;
   font-size: 15px
   
-}
+} */
 
-tr {
-  /* background-color: lightgray; */
+/* tr {
+  background-color: lightgray;
   color: black;
-}
+} */
 
 .row-id-1 {
   background-color: #FFF2CC; 
