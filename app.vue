@@ -122,6 +122,9 @@ function getMetadataById(id) {
     if (dataString["Notes"]) {
       output[3] = dataString["Notes"];
     }
+    else {
+      output[3] = ""
+    }
   }
   return output;
 }
