@@ -1,7 +1,7 @@
 <template>
     <div class="modal right fade  come-from-modal left" id="metadataModal">
         <div class="modal-dialog modal-xl">
-            <div class="modal-content">
+            <div class="modal-content" :style="{ backgroundColor: bgColor }">
                 <div class="modal-header">
                     <h4 class="modal-title" id="metadataTitle">{{ props.modalData[0] }}</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
@@ -11,17 +11,21 @@
                 <div class="modal-body">
                     <p class="text-start">{{ props.modalData[1] }}</p>
                     <div class="table-wrapper">
-                        <table class="table">
+                        <table class="table" :style="{ backgroundColor: bgColor }">
                             <thead>
                                 <tr>
-                                    <th scope="col">Outcome</th>
-                                    <th scope="col" v-if="props.modalData[3].length > 0">Notes</th>
+                                    <th scope="col" :style="{ backgroundColor: bgColor }">Outcome</th>
+                                    <th scope="col" :style="{ backgroundColor: bgColor }"
+                                        v-if="props.modalData[3].length > 0">
+                                        Notes</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{{ props.modalData[2] }}</td>
-                                    <td v-if="props.modalData[3].length > 0">{{ props.modalData[3] }}</td>
+                                    <td :style="{ backgroundColor: bgColor }">{{ props.modalData[2] }}</td>
+                                    <td :style="{ backgroundColor: bgColor }" v-if="props.modalData[3].length > 0">
+                                        {{ props.modalData[3] }}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -65,7 +69,12 @@ const props = defineProps({
     tableData: Array,
     edgesData: Array,
     modelValue: String,
+    backgroundColor: String
 })
+
+const bgColor = props.backgroundColor
+
+console.log(bgColor)
 
 const emits = defineEmits(['update:modelValue'])
 
