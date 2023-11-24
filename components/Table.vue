@@ -90,9 +90,14 @@ th
       text-align: center;
       white-space: nowrap;
       overflow: hidden;
-      border: 1px solid lightgray;
+      border: 15px solid lightgray;
     }
-    
+
+table{
+  width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 /* table ,th, td{
   border: 1px solid;
   font-size: 18px;
@@ -101,11 +106,7 @@ th
 }
 
 /*
-table{
-  width: 80%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
+
 
 th
     {
