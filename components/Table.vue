@@ -30,7 +30,7 @@
 </template>
  
 <script setup>
-  defineProps(['data', 'selectedStep'])
+defineProps(['data', 'selectedStep'])
 
 function getRowColorClass(row) {
   console.log(row.NodeID);
@@ -63,7 +63,6 @@ function getRowColorClass(row) {
 </script>
 
 <style scoped>
-
 /* table ,th, td{
   border: 1px solid;
   font-size: 18px;
@@ -96,11 +95,11 @@ td {
 } */
 
 .row-id-1 {
-  background-color: #FFF2CC; 
+  background-color: #FFF2CC;
 }
 
 .row-id-2 {
-  background-color: #D5E8D4; 
+  background-color: #D5E8D4;
 }
 
 .row-id-3 {
@@ -110,9 +109,11 @@ td {
 .row-id-4 {
   background-color: #A9C4EB;
 }
+
 .row-id-5 {
   background-color: #E1D5E7;
 }
+
 .row-id-6 {
   background-color: #FFE6CC;
 }
@@ -127,4 +128,7 @@ tr:hover {
   background-image: linear-gradient(rgb(0 0 0/5%) 0 0);
 }
 
+td {
+  text-align: center;
+}
 </style>

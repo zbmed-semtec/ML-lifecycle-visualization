@@ -6,10 +6,7 @@
   <div>
     <client-only>
       <!-- <MetadataModal /> -->
-      <Card
-        v-model:backgroundColor="modal.backgroundColor"
-        v-model:modelValue="selectedStep"
-      />
+      <Card v-model:backgroundColor="modal.backgroundColor" v-model:modelValue="selectedStep" />
       <template #fallback>
         <div class="whitespace" />
       </template>
@@ -18,10 +15,7 @@
   <br /><br /><br /><br />
 
   <div class="centered-table border">
-    <Table
-      v-if="data_lifecycle_info_sheet1"
-      :data="data_lifecycle_info_sheet1"
-    />
+    <Table v-if="data_lifecycle_info_sheet1" :data="data_lifecycle_info_sheet1" />
     <p v-else>loading</p>
   </div>
 
@@ -29,14 +23,9 @@
   <!-- <input type="file" @change="handleTxtFileUpload" accept=".tsv" /> -->
   <div>
     <client-only>
-      <MetadataModal
-        v-if="selectedStep >= 0"
-        v-model="selectedStep"
-        :modalData="getMetadataById(selectedStep)"
-        :tableData="data_lifecycle_info_sheet1"
-        :edgesData="data_lifecycle_info_sheet3"
-        :backgroundColor="modal.backgroundColor"
-      />
+      <MetadataModal v-if="selectedStep >= 0" v-model="selectedStep" :modalData="getMetadataById(selectedStep)"
+        :tableData="data_lifecycle_info_sheet1" :edgesData="data_lifecycle_info_sheet3"
+        :backgroundColor="modal.backgroundColor" />
     </client-only>
   </div>
   <!-- <button class="btn" @click="toggleModal()">OPEN MODAL</button> -->
@@ -143,7 +132,11 @@ html {
   font-family: "helvetica neue", helvetica, arial, sans-serif;
 }
 
-table,
+table {
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
 th,
 td {
   border: 1px solid;
