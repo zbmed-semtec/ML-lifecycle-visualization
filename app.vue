@@ -131,7 +131,9 @@ function getMetadataById(id) {
     output[0] = dataString["Name"]
     output[1] = dataString["Description"]
     output[2] = dataString["Outcome"]
-    output[3] = dataString["Notes"]
+    if (dataString["Notes"]) {
+      output[3] = dataString["Notes"]
+    }
   }
   return output
 }
