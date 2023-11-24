@@ -8,6 +8,9 @@
     <!-- <MetadataModal /> -->
     <client-only>
       <Card v-model="selectedStep" />
+      <template #fallback>
+        <div class="whitespace" />
+      </template>
     </client-only>
   </div><br><br><br><br>
   <Table v-if="data_lifecycle_info" :data="data_lifecycle_info_sheet1" />
@@ -188,6 +191,10 @@ tr {
   width: 50%;
   height: 100vh;
   background-color: rgb(222, 252, 209);
+}
+
+.whitespace {
+  height: 1020px;
 }
 </style>
 
