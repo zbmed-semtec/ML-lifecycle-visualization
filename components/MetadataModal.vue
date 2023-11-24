@@ -44,9 +44,9 @@
                             </thead>
                             <tbody>
                                 <template v-for="edge of edgesData">
-                                    <tr v-bind:key="edge" v-if="edge['Start_node'] == modelValue" @click="moveToNextStep(edge['End_node'])">
+                                    <tr v-bind:key="edge" v-if="edge['Start_node'] == modelValue" @click="moveToNextStep(edge['End_node'])" class="selection">
                                         <!-- TODO: Replace End_node with the corresponding node name -->
-                                        <td :style="{ backgroundColor: create_bgAltColor(getRowColorClass(edge['End_node'])) }" >{{ findEndNodeValue(edge['End_node']) }}</td>
+                                        <td :style="{ backgroundColor: create_bgAltColor(getRowColorClass(edge['End_node'])) }" >{{ nodeNames[parseInt(edge['End_node'])-1] }}</td>
                                         <td :style="{ backgroundColor: create_bgAltColor(getRowColorClass(edge['End_node'])) }"> {{ edge['Comment'] }}</td>
                                     </tr>
                                 </template>
@@ -72,7 +72,8 @@ const props = defineProps({
     tableData: Array,
     edgesData: Array,
     modelValue: String,
-    backgroundColor: String
+    backgroundColor: String,
+    nodeNames: String
 })
 
 function create_bgAltColor(org_color){
@@ -120,13 +121,8 @@ function moveToNextStep(step) {
     const class_color = getRowColorClass(step);
     bgColor = class_color;
     bgAltColor = create_bgAltColor(class_color);
-    console.log(class_color);
-    console.log(step);
 }
 
-function findEndNodeValue(end_node_id){
-    return end_node_id
-}
 function getRowColorClass(id) {
   switch (id) {
     case '1':
@@ -194,6 +190,10 @@ function getRowColorClass(id) {
   background-color: #F0A30A;
 }
 
+.selection:hover {
+  cursor: pointer;
+  font-weight: bold; 
+}
 .table-wrapper {
     max-width: 100%;
     overflow-x: auto;

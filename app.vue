@@ -25,7 +25,7 @@
     <client-only>
       <MetadataModal v-if="selectedStep >= 0" v-model="selectedStep" :modalData="getMetadataById(selectedStep)"
         :tableData="data_lifecycle_info_sheet1" :edgesData="data_lifecycle_info_sheet3"
-        :backgroundColor="modal.backgroundColor" />
+        :backgroundColor="modal.backgroundColor" :nodeNames="getNodeNames()"/>
     </client-only>
   </div>
   <!-- <button class="btn" @click="toggleModal()">OPEN MODAL</button> -->
@@ -125,6 +125,14 @@ function getMetadataById(id) {
     else {
       output[3] = ""
     }
+  }
+  return output;
+}
+
+function getNodeNames() {
+  let output = [];
+  for (let row in data_lifecycle_info_sheet2.value) {
+    output.push(data_lifecycle_info_sheet2.value[row]["Name"]);
   }
   return output;
 }

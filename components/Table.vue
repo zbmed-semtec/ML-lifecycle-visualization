@@ -155,8 +155,9 @@ td {
 
 tr:hover {
   cursor: pointer;
-  border: 2px solid #555;
+  border: 1px solid #555;
   background-image: linear-gradient(rgb(0 0 0/5%) 0 0);
+  font-weight: bold;
 }
 
 td {
