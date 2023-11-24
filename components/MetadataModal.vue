@@ -1,5 +1,5 @@
 <template>
-    <div class="modal fade" id="metadataModal">
+    <div class="modal right fade  come-from-modal left" id="metadataModal">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
@@ -58,4 +58,15 @@ function hide() {
 
 </script>
 
-<style scoped></style>
+<style scoped>
+.come-from-modal.left .modal-dialog {
+    margin-top: 250px;
+    margin-right: 150px;
+    width: 500px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+    -ms-transform: translate3d(0%, 0, 0);
+    -o-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+}
+</style>

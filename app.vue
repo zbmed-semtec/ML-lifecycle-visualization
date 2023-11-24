@@ -15,10 +15,12 @@
 
   <!-- <Table :data="table" /> -->
   <!-- <input type="file" @change="handleTxtFileUpload" accept=".tsv" /> -->
+  <div>
   <client-only>
     <MetadataModal v-if="selectedStep >= 0" v-model="selectedStep" :modalData="getMetadataById(selectedStep)" />
   </client-only>
-  <button class="btn" @click="toggleModal()">OPEN MODAL</button>
+  </div>
+  <!-- <button class="btn" @click="toggleModal()">OPEN MODAL</button> -->
 </template>
 
 <script setup>
@@ -77,7 +79,7 @@ const parseText = (textData) => {
     skipEmptyLines: true,
     delimiter: "\t"
   }).data;
-  // console.log(rows);
+  console.log(rows);
   return rows;
 };
 
@@ -132,6 +134,7 @@ function getMetadataById(id) {
   return output
 }
 
+console.log(data_lifecycle_info_sheet2.value)
 </script>
 
 <style scoped>

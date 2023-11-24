@@ -1,5 +1,7 @@
 <template>
+   <div class="transition" :class="{transform: modelValue >0}">
    <lifecycle @click="onClick" />
+   </div>
 </template>
 
 <script setup>
@@ -19,4 +21,14 @@ function onClick(event) {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.transform {
+    transform: translateX(-350px);
+}
+
+.transition {
+   display: grid;
+    place-items: center;
+    transition: transform ease-in-out 500ms;
+}
+</style>
