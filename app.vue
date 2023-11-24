@@ -6,7 +6,6 @@
   </div>
   <div>
     <!-- <MetadataModal /> -->
-    <!-- <StepNode /> -->
     <Card v-model="selectedStep" />
   </div><br><br><br><br>
   <Table v-if="data_lifecycle_info" :data="data_lifecycle_info_sheet1" />
@@ -24,7 +23,6 @@
 <script setup>
 import Selector from "~/components/Selector.vue";
 import MetadataModal from "~/components/MetadataModal.vue";
-import StepNode from "~/components/StepNode.vue";
 // import lifecycle from "../static/img/ML_lifecycle.svg";
 import Card from "~/components/Card.vue";
 import Table from "~/components/Table.vue";
