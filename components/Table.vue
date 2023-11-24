@@ -82,6 +82,16 @@ function getRowColorClass(row) {
 </script>
 
 <style scoped>
+
+th
+    {
+      background-color:lightgrey;
+      color:black;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    
 /* table ,th, td{
   border: 1px solid;
   font-size: 18px;
