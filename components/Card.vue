@@ -12,7 +12,6 @@ const emits = defineEmits(['update:modelValue'])
 // })
 
 function onClick(event) {
-   console.log(event.target)
    const step_id = event.target.closest('[data-step]')?.dataset.step
    if (step_id) {
       emits('update:modelValue', step_id)

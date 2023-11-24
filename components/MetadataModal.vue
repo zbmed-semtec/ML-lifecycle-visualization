@@ -3,24 +3,24 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="metadataTitle">{{ props.title }}</h4>
+                    <h4 class="modal-title" id="metadataTitle">{{ props.modalData[0] }}</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
 
                 <div class="modal-body">
-                    <p class="text-start">{{ props.description }}</p>
+                    <p class="text-start">{{ props.modalData[1] }}</p>
                     <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">Outcome</th>
-                                <th scope="col">Notes</th>
+                                <th scope="col" v-if="props.modalData[3].length > 0">Notes</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{{ props.outcome }}</td>
-                                <td>{{ props.notes }}</td>
+                                <td>{{ props.modalData[2] }}</td>
+                                <td v-if="props.modalData[3].length > 0">{{ props.modalData[3] }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -35,10 +35,7 @@ import app from '../app.vue'
 import { Modal } from 'bootstrap'
 
 const props = defineProps({
-    title: String,
-    description: String,
-    outcome: String,
-    notes: String,
+    modalData: Array,
 })
 
 const emits = defineEmits(['update:modelValue'])

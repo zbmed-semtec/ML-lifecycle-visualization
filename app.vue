@@ -16,8 +16,7 @@
   <!-- <Table :data="table" /> -->
   <!-- <input type="file" @change="handleTxtFileUpload" accept=".tsv" /> -->
   <client-only>
-    <MetadataModal v-if="selectedStep >= 0" v-model="selectedStep" :title="modal.title" :description="modal.description"
-      :outcome="modal.outcome" :notes="modal.notes" />
+    <MetadataModal v-if="selectedStep >= 0" v-model="selectedStep" :modalData="getMetadataById(selectedStep)" />
   </client-only>
   <button class="btn" @click="toggleModal()">OPEN MODAL</button>
 </template>
@@ -34,6 +33,8 @@ import Papa from "papaparse";
 
 const selectedStep = ref("-1")
 
+const modal = reactive({ showModal: false })
+
 const fetchData = async () => {
   try {
     const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vSD-IZNefqzcbHEDEvDQWSxClCuPeAhP6Jh0RwVBuSi8DdmRYsQs8UrPUv62__T9bgk0I1GhCSEY6Gn/pub?output=tsv&gid=0');
@@ -41,7 +42,6 @@ const fetchData = async () => {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const data = await response.text();
-    // console.log(data);
     return data; // Assuming your API response has a 'values' property
   } catch (error) {
     console.error('Error fetching data from Google Sheets:', error);
@@ -66,8 +66,6 @@ const fetchData_by_page = async (page_id) => {
   }
 };
 
-const modal = reactive({ showModal: false, title: "title", description: "description", outcome: "outcome", notes: "notes" })
-
 function toggleModal() {
   modal.showModal = !modal.showModal
 }
@@ -77,6 +75,7 @@ const parseText = (textData) => {
   const rows = Papa.parse(textData.toString().trim(), {
     header: true,
     skipEmptyLines: true,
+    delimiter: "\t"
   }).data;
   // console.log(rows);
   return rows;
@@ -119,6 +118,19 @@ data_lifecycle_info.value = await fetchDataAndParse_batched();
 data_lifecycle_info_sheet1.value = data_lifecycle_info.value[0];
 data_lifecycle_info_sheet2.value = data_lifecycle_info.value[1];
 data_lifecycle_info_sheet3.value = data_lifecycle_info.value[2];
+
+function getMetadataById(id) {
+  let output = ["Title", "Description", "Outcome", "Notes"]
+  if (id > 0) {
+    const dataString = data_lifecycle_info_sheet2.value[id - 1]
+    output[0] = dataString["Name"]
+    output[1] = dataString["Description"]
+    output[2] = dataString["Outcome"]
+    output[3] = dataString["Notes"]
+    console.log(dataString['Description'])
+  }
+  return output
+}
 
 </script>
 
