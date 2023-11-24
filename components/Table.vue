@@ -1,7 +1,7 @@
 <template>
   <table>
     <thead>
-      <tr>
+      <tr v-if="!overrideColor">
         <th v-if="!selectedStep">Node ID</th>
         <th>FAIR Principle</th>
         <th>Best Practices</th>
@@ -11,10 +11,20 @@
         <th>Resources affected by FAIR</th>
         <th>Notes</th>
       </tr>
+      <tr v-if="overrideColor">
+        <th :style="{ backgroundColor: overrideColor }" v-if="!selectedStep">Node ID</th>
+        <th :style="{ backgroundColor: overrideColor }">FAIR Principle</th>
+        <th :style="{ backgroundColor: overrideColor }">Best Practices</th>
+        <th :style="{ backgroundColor: overrideColor }">Metadata schemas</th>
+        <th :style="{ backgroundColor: overrideColor }">Services</th>
+        <th :style="{ backgroundColor: overrideColor }">Best Practices</th>
+        <th :style="{ backgroundColor: overrideColor }">Resources affected by FAIR</th>
+        <th :style="{ backgroundColor: overrideColor }">Notes</th>
+      </tr>
     </thead>
     <tbody>
       <template v-for="row of data" :key="row.id">
-        <tr v-if="!selectedStep || selectedStep == row['NodeID']" :class="getRowColorClass(row)">
+        <tr v-if="(!selectedStep || selectedStep == row['NodeID']) && !overrideColor" :class="getRowColorClass(row)">
           <Cell v-if="!selectedStep" :cellData="row['NodeID']" />
           <Cell :cellData="row['FAIR Principles']" />
           <Cell :cellData="row['Best Practices']" />
@@ -24,13 +34,23 @@
           <Cell :cellData="row['Resources affected by FAIR']" />
           <Cell :cellData="row['Notes']" />
         </tr>
+        <tr v-if="(!selectedStep || selectedStep == row['NodeID']) && overrideColor" :class="getRowColorClass(row)">
+          <Cell :style="{ backgroundColor: overrideColor }" v-if="!selectedStep" :cellData="row['NodeID']" />
+          <Cell :style="{ backgroundColor: overrideColor }" :cellData="row['FAIR Principles']" />
+          <Cell :style="{ backgroundColor: overrideColor }" :cellData="row['Best Practices']" />
+          <Cell :style="{ backgroundColor: overrideColor }" :cellData="row['Metadata schemas']" />
+          <Cell :style="{ backgroundColor: overrideColor }" :cellData="row['Services']" />
+          <Cell :style="{ backgroundColor: overrideColor }" :cellData="row['What do you need to do here']" />
+          <Cell :style="{ backgroundColor: overrideColor }" :cellData="row['Resources affected by FAIR']" />
+          <Cell :style="{ backgroundColor: overrideColor }" :cellData="row['Notes']" />
+        </tr>
       </template>
     </tbody>
   </table>
 </template>
  
 <script setup>
-defineProps(['data', 'selectedStep'])
+defineProps(['data', 'selectedStep', 'overrideColor'])
 
 function getRowColorClass(row) {
   switch (row.NodeID) {
@@ -62,8 +82,18 @@ function getRowColorClass(row) {
 </script>
 
 <style scoped>
- 
-table ,th, td{
+
+th
+    {
+      background-color:lightgrey;
+      color:black;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      border: 1px solid lightgray;
+    }
+    
+/* table ,th, td{
   border: 1px solid;
   font-size: 18px;
   border-collapse: collapse;

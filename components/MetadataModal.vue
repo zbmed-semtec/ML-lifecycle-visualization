@@ -14,40 +14,40 @@
                         <table class="table" :style="{ backgroundColor: bgColor }">
                             <thead>
                                 <tr>
-                                    <th scope="col" :style="{ backgroundColor: bgColor }">Outcome</th>
-                                    <th scope="col" :style="{ backgroundColor: bgColor }"
+                                    <th scope="col" :style="{ backgroundColor: bgAltColor }">Outcome</th>
+                                    <th scope="col" :style="{ backgroundColor: bgAltColor }"
                                         v-if="props.modalData[3].length > 0">
                                         Notes</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td :style="{ backgroundColor: bgColor }">{{ props.modalData[2] }}</td>
-                                    <td :style="{ backgroundColor: bgColor }" v-if="props.modalData[3].length > 0">
+                                    <td :style="{ backgroundColor: bgAltColor }">{{ props.modalData[2] }}</td>
+                                    <td :style="{ backgroundColor: bgAltColor }" v-if="props.modalData[3].length > 0">
                                         {{ props.modalData[3] }}
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="table-wrapper">
-                        <Table v-if="tableData" :data="tableData" :selected-step="modelValue" />
+                    <div class="table-wrapper" :style="{ backgroundColor: bgAltColor }">
+                        <Table v-if="tableData" :data="tableData" :selected-step="modelValue" :overrideColor="bgAltColor" />
                     </div>
                     <div class="table-wrapper">
-                        Next steps:
-                        <table class="table">
+                        <p class="fw-bold" style="margin-top: 1rem">Next steps:</p>
+                        <table class="table" :overrideColor="bgAltColor">
                             <thead>
                                 <tr>
-                                    <th scope="col">To</th>
-                                    <th scope="col">Comment</th>
+                                    <th scope="col" :style="{ backgroundColor: bgAltColor }">To</th>
+                                    <th scope="col" :style="{ backgroundColor: bgAltColor }">Comment</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <template v-for="(edge, index) in edgesData">
-                                    <tr v-bind:key="index" v-if="edge['Start_node'] == modelValue" >
-                                    <!-- TODO: Replace End_node with the corresponding node name -->
-                                    <td :class="getRowColorClass(edge)">{{ edge['End_node'] }}</td>
-                                    <td :class="getRowColorClass(edge)">{{ edge['Comment'] }}</td>
+                                <template v-for="edge of edgesData">
+                                    <tr v-bind:key="edge" v-if="edge['Start_node'] == modelValue">
+                                        <!-- TODO: Replace End_node with the corresponding node name -->
+                                        <td :style="{ backgroundColor: bgAltColor }">{{ edge['End_node'] }}</td>
+                                        <td :style="{ backgroundColor: bgAltColor }"> {{ edge['Comment'] }}</td>
                                     </tr>
                                 </template>
                             </tbody>
@@ -65,6 +65,7 @@
 import app from '../app.vue'
 import { Modal } from 'bootstrap'
 import Table from '~/components/Table.vue'
+import convert from 'color-convert'
 
 const props = defineProps({
     modalData: Array,
@@ -75,9 +76,21 @@ const props = defineProps({
 })
 
 const bgColor = props.backgroundColor
+let bgAltColor = convert.hex.hsl(bgColor)
+if (bgAltColor[2] > 90) {
+    bgAltColor[2] -= 5
+}
+else {
+    bgAltColor[2] += 5
+}
 
-console.log(bgColor)
-
+if (bgAltColor[1] < 10) {
+    bgAltColor[1] += 5
+}
+else {
+    bgAltColor[1] -= 5
+}
+bgAltColor = "#" + convert.hsl.hex(bgAltColor)
 const emits = defineEmits(['update:modelValue'])
 
 let modal
