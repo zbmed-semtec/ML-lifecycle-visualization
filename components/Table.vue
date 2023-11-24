@@ -15,7 +15,7 @@
     <tbody>
       <template v-for="row of data" :key="row.id">
         <tr v-if="!selectedStep || selectedStep == row['NodeID']" :class="getRowColorClass(row)">
-        <Cell :cellData="row['NodeID']" />
+        <Cell v-if="!selectedStep" :cellData="row['NodeID']" />
         <Cell :cellData="row['FAIR Principles']" />
         <Cell :cellData="row['Best Practices']" />
         <Cell :cellData="row['Metadata schemas']" />
@@ -79,7 +79,7 @@ table{
 
 th
     {
-      /* background-color:lightblue; */
+      background-color:lightblue;
       color:black;
       
     }
@@ -96,25 +96,25 @@ tr {
 }
 
 .row-id-1 {
-  background-color: #FFF2CC !important;; 
+  background-color: #FFF2CC; 
 }
 
 .row-id-2 {
-  background-color: #D5E8D4 !important;; 
+  background-color: #D5E8D4; 
 }
 
 .row-id-3 {
-  background-color: #DAE8FC !important;;
+  background-color: #DAE8FC;
 }
 
 .row-id-4 {
-  background-color: #A9C4EB !important;;
+  background-color: #A9C4EB;
 }
 .row-id-5 {
-  background-color: #E1D5E7 !important;;
+  background-color: #E1D5E7;
 }
 .row-id-6 {
-  background-color: #FFE6CC !important;;
+  background-color: #FFE6CC;
 }
 
 .row-id-7 {
