@@ -154,7 +154,7 @@ td {
 }
 
 tr {
-  background-color: lightgray;
+  /* background-color: lightgray; */
   color: black;
 }
 
@@ -166,7 +166,7 @@ tr {
 .toppane {
   width: 100%;
   height: 100px;
-  background-color: #fbfbfb;
+  /* background-color: #fbfbfb; */
 }
 
 .leftpane {
