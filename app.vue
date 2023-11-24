@@ -6,14 +6,16 @@
   </div>
   <div>
     <!-- <MetadataModal /> -->
-    <Card v-model="selectedStep" />
+    <client-only>
+      <Card v-model="selectedStep" />
+    </client-only>
   </div><br><br><br><br>
   <Table v-if="data_lifecycle_info" :data="data_lifecycle_info_sheet1" />
   <p v-else>loading</p>
 
   <!-- <Table :data="table" /> -->
   <!-- <input type="file" @change="handleTxtFileUpload" accept=".tsv" /> -->
-  <client-only placeholder="loading...">
+  <client-only>
     <MetadataModal v-if="selectedStep >= 0" v-model="selectedStep" :title="modal.title" :description="modal.description"
       :outcome="modal.outcome" :notes="modal.notes" />
   </client-only>
