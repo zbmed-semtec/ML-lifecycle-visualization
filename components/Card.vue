@@ -1,6 +1,6 @@
 <template>
    <div class="transition" :class="{ transform: modelValue > 0 }">
-      <lifecycle @click="onClick" @mouseover="mouseOver" @mouseout="mouseOut" :class="{ cursor: isMouseOver }" />
+      <lifecycle @click="onClick" />
    </div>
 </template>
 
@@ -22,30 +22,9 @@ function onClick(event) {
    }
 }
 
-function mouseOver(event) {
-   const step = event.target.closest('[data-step]')?.dataset.step
-   const rectElement = event.target.closest('rect');
-   if (step) {
-      isMouseOver.value = true;
-      const targetElement = event.target;
-      if (rectElement) {
-         rectElement.dataset.originalFillColor = rectElement.style.fill;
-         rectElement.style.fill = '#a0a0a0';
-      }
-   }
-}
-
-function mouseOut() {
-   isMouseOver.value = false;
-   const rectElement = event.target.closest('rect');
-   if (rectElement) {
-      rectElement.style.fill = rectElement.dataset.originalFillColor;
-   }
-}
-
 </script>
 
-<style scoped>
+<style>
 .transform {
    transform: translateX(-350px);
 }
@@ -56,7 +35,16 @@ function mouseOut() {
    transition: transform ease-in-out 500ms;
 }
 
-.cursor {
+[data-step] {
    cursor: pointer;
 }
+
+
+[data-step]:hover rect {
+   fill: rgb(213, 209, 209);
+}
+
+/* .cursor {
+   cursor: pointer;
+} */
 </style>
