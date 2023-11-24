@@ -1,8 +1,8 @@
 <template>
-  <table border="1">
+  <table class="table">
     <thead>
       <tr>
-        <th>Title</th>
+        <th v-if="!selectedStep">Node ID</th>
         <th>FAIR Principle</th>
         <th>Best Practices</th>
         <th>Metadata schemas</th>
@@ -92,6 +92,7 @@ th
 td {
   text-align: center;
   font-size: 15px
+  
 }
 
 tr {

@@ -10,20 +10,25 @@
 
                 <div class="modal-body">
                     <p class="text-start">{{ props.modalData[1] }}</p>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Outcome</th>
-                                <th scope="col" v-if="props.modalData[3].length > 0">Notes</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>{{ props.modalData[2] }}</td>
-                                <td v-if="props.modalData[3].length > 0">{{ props.modalData[3] }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Outcome</th>
+                                    <th scope="col" v-if="props.modalData[3].length > 0">Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ props.modalData[2] }}</td>
+                                    <td v-if="props.modalData[3].length > 0">{{ props.modalData[3] }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-wrapper">
+                        <Table v-if="tableData" :data="tableData" :selected-step="modelValue" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -33,9 +38,12 @@
 <script setup>
 import app from '../app.vue'
 import { Modal } from 'bootstrap'
+import Table from '~/components/Table.vue'
 
 const props = defineProps({
     modalData: Array,
+    tableData: Array,
+    modelValue: String,
 })
 
 const emits = defineEmits(['update:modelValue'])
@@ -64,9 +72,11 @@ function hide() {
     margin-right: 5%;
     margin-left: 52%;
     height: 100%;
-    -webkit-transform: translate3d(0%, 0, 0);
-    -ms-transform: translate3d(0%, 0, 0);
-    -o-transform: translate3d(0%, 0, 0);
     transform: translate3d(0%, 0, 0);
+}
+
+.table-wrapper {
+    max-width: 100%;
+    overflow-x: auto;
 }
 </style>
