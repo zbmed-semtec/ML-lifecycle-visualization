@@ -4,8 +4,8 @@
   </div>
   <div>
     <client-only>
-    <!-- <MetadataModal /> -->
-      <Card v-model="selectedStep" />
+      <!-- <MetadataModal /> -->
+      <Card v-model:backgroundColor="modal.backgroundColor" v-model:modelValue="selectedStep" />
       <template #fallback>
         <div class="whitespace" />
       </template>
@@ -15,12 +15,8 @@
   <p v-else>loading</p>
   <div>
     <client-only>
-      <MetadataModal
-        v-if="selectedStep >= 0"
-        v-model="selectedStep"
-        :modalData="getMetadataById(selectedStep)"
-        :tableData="data_lifecycle_info_sheet1"
-      />
+      <MetadataModal v-if="selectedStep >= 0" v-model="selectedStep" :modalData="getMetadataById(selectedStep)"
+        :tableData="data_lifecycle_info_sheet1" :backgroundColor="modal.backgroundColor" />
     </client-only>
   </div>
   <!-- <button class="btn" @click="toggleModal()">OPEN MODAL</button> -->
@@ -37,7 +33,7 @@ import Papa from "papaparse";
 
 const selectedStep = ref("-1")
 
-const modal = reactive({ showModal: false })
+const modal = reactive({ showModal: false, backgroundColor: "#FFF" })
 
 const fetchData = async () => {
   try {
