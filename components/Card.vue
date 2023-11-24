@@ -1,6 +1,6 @@
 <template>
    <div class="transition" :class="{transform: modelValue >0}">
-   <lifecycle @click="onClick" />
+   <lifecycle @click="onClick" @mouseover="mouseOver"  @mouseout= "mouseOut" :class="{ cursor: isMouseOver }"/>
    </div>
 </template>
 
@@ -8,10 +8,8 @@
 import lifecycle from "../static/img/ML_lifecycle.svg";
 defineProps(['modelValue'])
 const emits = defineEmits(['update:modelValue'])
+const isMouseOver = ref(false);
 
-// onMounted(() => {
-
-// })
 
 function onClick(event) {
    const step_id = event.target.closest('[data-step]')?.dataset.step
@@ -19,6 +17,28 @@ function onClick(event) {
       emits('update:modelValue', step_id)
    }
 }
+
+function mouseOver(event) {
+   const step = event.target.closest('[data-step]')?.dataset.step
+   const rectElement = event.target.closest('rect');
+   if (step) {
+      isMouseOver.value = true;
+      const targetElement = event.target;
+      if (rectElement) {
+         rectElement.dataset.originalFillColor = rectElement.style.fill;
+         rectElement.style.fill = '#a0a0a0';
+      }
+   }
+}
+
+function mouseOut() {
+  isMouseOver.value = false;
+  const rectElement = event.target.closest('rect');
+  if (rectElement) {
+         rectElement.style.fill = rectElement.dataset.originalFillColor;
+      }
+}
+
 </script>
 
 <style scoped>
@@ -30,5 +50,9 @@ function onClick(event) {
    display: grid;
     place-items: center;
     transition: transform ease-in-out 500ms;
+}
+
+.cursor {
+   cursor: pointer;
 }
 </style>

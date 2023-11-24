@@ -1,9 +1,5 @@
 <template>
   <table border="1">
-
-    <!-- <caption>
-    ML Life Cycle Visualization <br>
-  </caption> -->
     <thead>
       <tr>
         <th>Title</th>
@@ -17,30 +13,24 @@
       </tr>
     </thead>
     <tbody>
-      <!-- <tr v-for="row of data" :class="`${getRowColorClass(row["NodeID"])}`"> -->
-      <tr v-for="row of data" :key="row.id" :class="getRowColorClass(row)">
-        <!-- <Cell :data="" /> -->
-        <td>{{ row["NodeID"] }}</td>
-        <td>{{ row["FAIR Principles"] }}</td>
-        <td>{{ row["Best Practices"] }}</td>
-        <td>{{ row["Metadata schemas"] }}</td>
-        <td>
-          <a v-if="row['Metadata schemas'].startsWith('http')"
-            :href="row['Metadata schemas']">{{ row["Metadata schemas"] }}</a>
-          <span v-else>{{ row["Metadata schemas"] }}</span>
-        </td>
-        <td>{{ row["Services"] }}</td>
-        <td>{{ row["What do you need to do here"] }}</td>
-        <td>{{ row["Resources affected by FAIR"] }}</td>
-        <td>{{ row["Notes"] }}</td>
+      <template v-for="row of data" :key="row.id">
+        <tr v-if="!selectedStep || selectedStep == row['NodeID']" :class="getRowColorClass(row)">
+        <Cell :cellData="row['NodeID']" />
+        <Cell :cellData="row['FAIR Principles']" />
+        <Cell :cellData="row['Best Practices']" />
+        <Cell :cellData="row['Metadata schemas']" />
+        <Cell :cellData="row['Services']" />
+        <Cell :cellData="row['What do you need to do here']" />
+        <Cell :cellData="row['Resources affected by FAIR']" />
+        <Cell :cellData="row['Notes']" />
       </tr>
+    </template>
     </tbody>
   </table>
 </template>
  
 <script setup>
-
-defineProps(['data'])
+  defineProps(['data', 'selectedStep'])
 
 
 
@@ -74,30 +64,30 @@ function getRowColorClass(row) {
 }
 
 
-
 </script>
 
 <style scoped>
-table,
-th,
-td {
+
+table ,th, td{
   border: 1px solid;
   font-size: 18px;
   border-collapse: collapse;
   margin: 0 auto;
 
+  
 }
-
-table {
+table{
   width: 80%;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-th {
-  background-color: lightblue;
-  color: black;
-
-}
+th
+    {
+      background-color:lightblue;
+      color:black;
+      
+    }
 
 td {
   text-align: center;
@@ -133,6 +123,12 @@ tr {
 
 .row-id-7 {
   background-color: #F0A30A; /* Light green for NodeID "B" */
+}
+
+tr:hover {
+  cursor: pointer;
+  border: 2px solid #555;
+  background-image: linear-gradient(rgb(0 0 0/5%) 0 0);
 }
 
 </style>
