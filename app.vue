@@ -10,9 +10,16 @@
         <div class="whitespace" />
       </template>
     </client-only>
-  </div><br><br><br><br>
-  <Table v-if="data_lifecycle_info_sheet1" :data="data_lifecycle_info_sheet1" />
-  <p v-else>loading</p>
+  </div>
+  <br><br><br><br>
+
+  <div class="centered-table border">
+    <Table v-if="data_lifecycle_info_sheet1" :data="data_lifecycle_info_sheet1" />
+    <p v-else>loading</p>
+  </div>
+  
+  <!-- <Table :data="table" /> -->
+  <!-- <input type="file" @change="handleTxtFileUpload" accept=".tsv" /> -->
   <div>
     <client-only>
       <MetadataModal v-if="selectedStep >= 0" v-model="selectedStep" :modalData="getMetadataById(selectedStep)"
@@ -143,7 +150,7 @@ td {
 }
 
 tr {
-  background-color: lightgray;
+  /* background-color: lightgray; */
   color: black;
 }
 
@@ -155,7 +162,7 @@ tr {
 .toppane {
   width: 100%;
   height: 100px;
-  background-color: #fbfbfb;
+  /* background-color: #fbfbfb; */
 }
 
 .leftpane {
@@ -173,5 +180,7 @@ tr {
 .whitespace {
   height: 1020px;
 }
+
+
 </style>
 

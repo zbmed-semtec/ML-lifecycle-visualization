@@ -1,0 +1,176 @@
+<template>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>FAIR Principle</th>
+          <th>Best Practices</th>
+          <th>Metadata schemas</th>
+          <th>Services</th>
+          <th>Best Practices</th>
+          <th>Resources affected by FAIR</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <template v-for="row of data" :key="row.id" :class="getRowColorClass(row)">
+          <tr v-if="!selectedStep || selectedStep == row['NodeID']">
+          <Cell :cellData="row['NodeID']" />
+          <Cell :cellData="row['FAIR Principles']" />
+          <Cell :cellData="row['Best Practices']" />
+          <Cell :cellData="row['Metadata schemas']" />
+          <Cell :cellData="row['Services']" />
+          <Cell :cellData="row['What do you need to do here']" />
+          <Cell :cellData="row['Resources affected by FAIR']" />
+          <Cell :cellData="row['Notes']" />
+        </tr>
+  
+    </tbody>
+      <table border="1">
+    </table>
+    <!-- <caption>
+      ML Life Cycle Visualization <br>
+    </caption> -->
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>FAIR Principle</th>
+      <th>Best Practices</th>
+      <th>Metadata schemas</th>
+      <th>Services</th>
+      <th>Best Practices</th>
+      <th>Resources affected by FAIR</th>
+      <th>Notes</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+      <tr v-for="row of data">
+         <!-- <Cell :data="" /> -->
+        <td>{{row["NodeID"]}}</td>
+        <td>{{row["FAIR Principles"]}}</td>
+        <td>{{row["Best Practices"]}}</td>
+        <td>{{row["Metadata schemas"]}}</td>
+          <td>
+            <a v-if="row['Metadata schemas'].startsWith('http')"
+              :href="row['Metadata schemas']">{{ row["Metadata schemas"] }}</a>
+            <span v-else>{{ row["Metadata schemas"] }}</span>
+          </td>
+          <td>{{ row["Services"] }}</td>
+          <td>{{ row["What do you need to do here"] }}</td>
+          <td>{{ row["Resources affected by FAIR"] }}</td>
+          <td>{{ row["Notes"] }}</td>
+        </tr>
+  
+        <!-- <tr>
+      <th colspan="2">Problem Definition</th>
+          <td><tr>FAIR Data</tr>
+          <tr>FAIR Software</tr>
+          <tr>FAIR AI Models</tr>
+          </td>   
+    </tr>
+    <tr>
+      <th scope="row">Khiresh Odo</th>
+      <td>7</td>
+      <td>7,223</td>
+    </tr> -->
+      </tbody>
+    </table>
+  </template>
+   
+  <script setup>
+    defineProps(['data', 'selectedStep'])
+  
+  
+  
+  
+  function getRowColorClass(row) {
+    switch (row.NodeID) {
+      case '1':
+        return 'row-id-1';
+      case '2':
+      case '3':
+        return 'row-id-2';
+      case '4':
+      case '5':
+      case '6':
+        return 'row-id-3';
+      case '7':
+        return 'row-id-4';
+      case '8':
+        return 'row-id-5';
+      case '9':
+        return 'row-id-6';
+      case '10':
+        return 'row-id-7';
+        
+        
+  
+      // Add more cases for other NodeID values as needed
+      default:
+        return ''; // Default or fallback class
+    }
+  }
+  
+  
+  </script>
+  
+  <style scoped>
+  
+  table ,th, td{
+    border: 1px solid;
+    font-size: 18px;
+    border-collapse: collapse;
+    margin: 0 auto;
+  
+    
+  }
+  table{
+    width: 80%;
+    margin-top: 20px;
+  }
+  
+  th
+      {
+        background-color:lightblue;
+        color:black;
+        
+      }
+  
+  td {
+    text-align: center;
+    font-size: 15px
+  }
+  
+  tr {
+    background-color: lightgray;
+    color: black;
+  }
+  
+  .row-id-1 {
+    background-color: #FFF2CC; /* Light red for NodeID "A" */
+  }
+  
+  .row-id-2 {
+    background-color: #D5E8D4; /* Light green for NodeID "B" */
+  }
+  
+  .row-id-3 {
+    background-color: #DAE8FC; /* Light green for NodeID "B" */
+  }
+  
+  .row-id-4 {
+    background-color: #A9C4EB; /* Light green for NodeID "B" */
+  }
+  .row-id-5 {
+    background-color: #E1D5E7; /* Light green for NodeID "B" */
+  }
+  .row-id-6 {
+    background-color: #FFE6CC; /* Light green for NodeID "B" */
+  }
+  
+  .row-id-7 {
+    background-color: #F0A30A; /* Light green for NodeID "B" */
+  }
+  
+  </style>
