@@ -9,7 +9,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <p class="text-start">{{ props.modalData[1] }}</p>
+                    <p class="text-start">{{ props.modalData[1]}}</p>
                     <div class="table-wrapper">
                         <table class="table" :style="{ backgroundColor: bgColor }">
                             <thead>
@@ -44,10 +44,10 @@
                             </thead>
                             <tbody>
                                 <template v-for="edge of edgesData">
-                                    <tr v-bind:key="edge" v-if="edge['Start_node'] == modelValue">
+                                    <tr v-bind:key="edge" v-if="edge['Start_node'] == modelValue" @click="moveToNextStep(edge['End_node'])">
                                         <!-- TODO: Replace End_node with the corresponding node name -->
-                                        <td :style="{ backgroundColor: bgAltColor }">{{ edge['End_node'] }}</td>
-                                        <td :style="{ backgroundColor: bgAltColor }"> {{ edge['Comment'] }}</td>
+                                        <td :style="{ backgroundColor: create_bgAltColor(getRowColorClass(edge['End_node'])) }" >{{ findEndNodeValue(edge['End_node']) }}</td>
+                                        <td :style="{ backgroundColor: create_bgAltColor(getRowColorClass(edge['End_node'])) }"> {{ edge['Comment'] }}</td>
                                     </tr>
                                 </template>
                             </tbody>
@@ -75,23 +75,29 @@ const props = defineProps({
     backgroundColor: String
 })
 
-const bgColor = props.backgroundColor
-let bgAltColor = convert.hex.hsl(bgColor)
-if (bgAltColor[2] > 90) {
-    bgAltColor[2] -= 5
-}
-else {
-    bgAltColor[2] += 5
+function create_bgAltColor(org_color){
+    let bgAltColor_tmp = convert.hex.hsl(org_color)
+    if (bgAltColor_tmp[2] > 90) {
+        bgAltColor_tmp[2] -= 5
+    }
+    else {
+        bgAltColor_tmp[2] += 5
+    }
+
+    if (bgAltColor_tmp[1] < 10) {
+        bgAltColor_tmp[1] += 5
+    }
+    else {
+        bgAltColor_tmp[1] -= 5
+    }
+    bgAltColor_tmp = "#" + convert.hsl.hex(bgAltColor_tmp)
+    return bgAltColor_tmp
 }
 
-if (bgAltColor[1] < 10) {
-    bgAltColor[1] += 5
-}
-else {
-    bgAltColor[1] -= 5
-}
-bgAltColor = "#" + convert.hsl.hex(bgAltColor)
-const emits = defineEmits(['update:modelValue'])
+let bgColor = props.backgroundColor
+let bgAltColor = create_bgAltColor(bgColor)
+
+const emits = defineEmits(['update:modelValue', 'update:backgroundColor'])
 
 let modal
 
@@ -109,30 +115,44 @@ function hide() {
     emits('update:modelValue', -1)
 }
 
-function getRowColorClass(info) {
-  switch (info.End_node) {
+function moveToNextStep(step) {
+    emits('update:modelValue', step)
+    const class_color = getRowColorClass(step);
+    bgColor = class_color;
+    bgAltColor = create_bgAltColor(class_color);
+    console.log(class_color);
+    console.log(step);
+}
+
+function findEndNodeValue(end_node_id){
+    return end_node_id
+}
+function getRowColorClass(id) {
+  switch (id) {
     case '1':
-      return 'row-color-1';
+      return '#FFF2CC';
     case '2':
     case '3':
-      return 'row-color-2';
+      return '#D5E8D4';
     case '4':
     case '5':
     case '6':
-      return 'row-color-3';
+      return '#DAE8FC';
     case '7':
-      return 'row-color-4';
+      return '#A9C4EB';
     case '8':
-      return 'row-color-5';
+      return '#E1D5E7';
     case '9':
-      return 'row-color-6';
+      return '#FFE6CC';
     case '10':
-      return 'row-color-7';
+      return 'r#F0A30A';
 
     // Add more cases for other NodeID values as needed
     default:
       return ''; // Default or fallback class
   }
+  
+  
 }
 
 </script>

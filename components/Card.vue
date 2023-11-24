@@ -12,13 +12,13 @@ const isMouseOver = ref(false);
 
 
 function onClick(event) {
-   const group = event.target.closest('[data-step]')
-   const step_id = event.target.closest('[data-step]')?.dataset.step
+   const group = event.target.closest('[data-step]');
+   const step_id = event.target.closest('[data-step]')?.dataset.step;
    const backgroundColor = group.querySelector('rect')?.attributes.fill.value;
    if (step_id) {
-      emits('update:modelValue', step_id)
+      emits('update:modelValue', step_id);
       if (backgroundColor) {
-         emits('update:backgroundColor', backgroundColor)
+         emits('update:backgroundColor', backgroundColor);
       }
    }
 }
