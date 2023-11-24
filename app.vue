@@ -19,9 +19,9 @@
   <!-- <Table :data="table" /> -->
   <!-- <input type="file" @change="handleTxtFileUpload" accept=".tsv" /> -->
   <div>
-  <client-only>
-    <MetadataModal v-if="selectedStep >= 0" v-model="selectedStep" :modalData="getMetadataById(selectedStep)" />
-  </client-only>
+    <client-only>
+      <MetadataModal v-if="selectedStep >= 0" v-model="selectedStep" :modalData="getMetadataById(selectedStep)" />
+    </client-only>
   </div>
   <!-- <button class="btn" @click="toggleModal()">OPEN MODAL</button> -->
 </template>
@@ -132,12 +132,9 @@ function getMetadataById(id) {
     output[1] = dataString["Description"]
     output[2] = dataString["Outcome"]
     output[3] = dataString["Notes"]
-    console.log(dataString['Description'])
   }
   return output
 }
-
-console.log(data_lifecycle_info_sheet2.value)
 </script>
 
 <style scoped>
