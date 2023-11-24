@@ -13,7 +13,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="row of data">
+      <template v-for="row of data">
+        <tr v-if="!selectedStep || selectedStep == row['NodeID']">
         <Cell :cellData="row['NodeID']" />
         <Cell :cellData="row['FAIR Principles']" />
         <Cell :cellData="row['Best Practices']" />
@@ -23,6 +24,7 @@
         <Cell :cellData="row['Resources affected by FAIR']" />
         <Cell :cellData="row['Notes']" />
       </tr>
+    </template>
   </tbody>
     <table border="1">
         
@@ -75,13 +77,7 @@
 </template>
  
 <script setup>
-  const props = defineProps(['data', 'selectedStep'])
-
-  // let filteredData = props.data;
-  // console.log(props)
-  // // if (props.selectedStep) {
-  // //   filteredData = props.data.filter(datum => datum['NodeID'] === selectedStep)
-  // // }
+  defineProps(['data', 'selectedStep'])
 </script>
 
 <style scoped>
