@@ -15,16 +15,16 @@
     <tbody>
       <template v-for="row of data" :key="row.id">
         <tr v-if="!selectedStep || selectedStep == row['NodeID']" :class="getRowColorClass(row)">
-        <Cell v-if="!selectedStep" :cellData="row['NodeID']" />
-        <Cell :cellData="row['FAIR Principles']" />
-        <Cell :cellData="row['Best Practices']" />
-        <Cell :cellData="row['Metadata schemas']" />
-        <Cell :cellData="row['Services']" />
-        <Cell :cellData="row['What do you need to do here']" />
-        <Cell :cellData="row['Resources affected by FAIR']" />
-        <Cell :cellData="row['Notes']" />
-      </tr>
-    </template>
+          <Cell v-if="!selectedStep" :cellData="row['NodeID']" />
+          <Cell :cellData="row['FAIR Principles']" />
+          <Cell :cellData="row['Best Practices']" />
+          <Cell :cellData="row['Metadata schemas']" />
+          <Cell :cellData="row['Services']" />
+          <Cell :cellData="row['What do you need to do here']" />
+          <Cell :cellData="row['Resources affected by FAIR']" />
+          <Cell :cellData="row['Notes']" />
+        </tr>
+      </template>
     </tbody>
   </table>
 </template>
