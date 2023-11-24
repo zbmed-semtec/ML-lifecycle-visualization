@@ -1,8 +1,8 @@
 <template>
-  <table border="1">
+  <table class="table">
     <thead>
       <tr>
-        <th>Title</th>
+        <th v-if="!selectedStep">Node ID</th>
         <th>FAIR Principle</th>
         <th>Best Practices</th>
         <th>Metadata schemas</th>
@@ -15,7 +15,7 @@
     <tbody>
       <template v-for="row of data">
         <tr v-if="!selectedStep || selectedStep == row['NodeID']">
-          <Cell :cellData="row['NodeID']" />
+          <Cell v-if="!selectedStep" :cellData="row['NodeID']" />
           <Cell :cellData="row['FAIR Principles']" />
           <Cell :cellData="row['Best Practices']" />
           <Cell :cellData="row['Metadata schemas']" />
@@ -35,14 +35,16 @@
 
 <style scoped>
 
-table, th, td {
+/* table, th, td {
   border: 1px solid;
   font-size: 18px;
   border-collapse: collapse;
   
 }
+
 table {
-  width: 80%;
+  overflow-x: auto;
+  max-width: 100%;
 }
 
 th {
@@ -59,5 +61,5 @@ td {
 tr {
   background-color:lightgray;
   color:black;
-}
+} */
 </style>

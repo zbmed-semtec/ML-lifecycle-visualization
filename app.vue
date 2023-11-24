@@ -15,7 +15,12 @@
   <p v-else>loading</p>
   <div>
     <client-only>
-      <MetadataModal v-if="selectedStep >= 0" v-model="selectedStep" :modalData="getMetadataById(selectedStep)" />
+      <MetadataModal
+        v-if="selectedStep >= 0"
+        v-model="selectedStep"
+        :modalData="getMetadataById(selectedStep)"
+        :tableData="data_lifecycle_info_sheet1"
+      />
     </client-only>
   </div>
   <!-- <button class="btn" @click="toggleModal()">OPEN MODAL</button> -->
