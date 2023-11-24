@@ -33,25 +33,24 @@
 defineProps(['data', 'selectedStep'])
 
 function getRowColorClass(row) {
-  console.log(row.NodeID);
   switch (row.NodeID) {
     case '1':
-      return 'row-id-1';
+      return 'row-color-1';
     case '2':
     case '3':
-      return 'row-id-2';
+      return 'row-color-2';
     case '4':
     case '5':
     case '6':
-      return 'row-id-3';
+      return 'row-color-3';
     case '7':
-      return 'row-id-4';
+      return 'row-color-4';
     case '8':
-      return 'row-id-5';
+      return 'row-color-5';
     case '9':
-      return 'row-id-6';
+      return 'row-color-6';
     case '10':
-      return 'row-id-7';
+      return 'row-color-7';
 
     // Add more cases for other NodeID values as needed
     default:
@@ -63,13 +62,15 @@ function getRowColorClass(row) {
 </script>
 
 <style scoped>
-/* table ,th, td{
+ 
+table ,th, td{
   border: 1px solid;
   font-size: 18px;
   border-collapse: collapse;
   margin: 0 auto;
 }
 
+/*
 table{
   width: 80%;
   margin-top: 20px;
@@ -94,31 +95,31 @@ td {
   color: black;
 } */
 
-.row-id-1 {
+.row-color-1 {
   background-color: #FFF2CC;
 }
 
-.row-id-2 {
+.row-color-2 {
   background-color: #D5E8D4;
 }
 
-.row-id-3 {
+.row-color-3 {
   background-color: #DAE8FC;
 }
 
-.row-id-4 {
+.row-color-4 {
   background-color: #A9C4EB;
 }
 
-.row-id-5 {
+.row-color-5 {
   background-color: #E1D5E7;
 }
 
-.row-id-6 {
+.row-color-6 {
   background-color: #FFE6CC;
 }
 
-.row-id-7 {
+.row-color-7 {
   background-color: #F0A30A;
 }
 
