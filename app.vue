@@ -3,19 +3,16 @@
     <h1 class="font">MACHINE LEARNING LIFECYCLE</h1><br><br>
   </div>
   <div>
-    <!-- <MetadataModal /> -->
     <client-only>
+    <!-- <MetadataModal /> -->
       <Card v-model="selectedStep" />
       <template #fallback>
         <div class="whitespace" />
       </template>
     </client-only>
   </div><br><br><br><br>
-  <Table v-if="data_lifecycle_info" :data="data_lifecycle_info_sheet1" />
+  <Table v-if="data_lifecycle_info_sheet1" :data="data_lifecycle_info_sheet1" />
   <p v-else>loading</p>
-
-  <!-- <Table :data="table" /> -->
-  <!-- <input type="file" @change="handleTxtFileUpload" accept=".tsv" /> -->
   <div>
     <client-only>
       <MetadataModal v-if="selectedStep >= 0" v-model="selectedStep" :modalData="getMetadataById(selectedStep)" />
@@ -43,8 +40,7 @@ const fetchData = async () => {
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    const data = await response.text();
-    return data; // Assuming your API response has a 'values' property
+    return await response.text();
   } catch (error) {
     console.error('Error fetching data from Google Sheets:', error);
     return [];
@@ -58,8 +54,7 @@ const fetchData_by_page = async (page_id) => {
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    const data = await response.text();
-    return data;
+    return await response.text();
   } catch (error) {
     console.error('Error fetching data from Google Sheets:', error);
     return [];
@@ -90,32 +85,21 @@ async function fetchDataAndParse() {
   }
 }
 
-async function fetchDataAndParse_batched() {
-  let ids = [0, 1021772098, 1947282418]
-  // let ids =  [0, 1, 2]
-  let results = [];
-  for (let i = 0; i < ids.length; i++) {
-    const data = await fetchData_by_page(ids[i]);
-
-    if (data) {
-      const rows = parseText(data);
-      results.push(rows);
-    } else {
-      console.error(`Error fetching or parsing data of sheet`);
-    }
+async function fetchDataAndParse_batched(id, ref) {
+  const data = await fetchData_by_page(id);
+  if (data) {
+    ref.value = parseText(data);
+  } else {
+    console.error(`Error fetching or parsing data of sheet`);
   }
-
-  return results;
 }
 
-const data_lifecycle_info = ref(null)
-const data_lifecycle_info_sheet1 = ref(null)
-const data_lifecycle_info_sheet2 = ref(null)
-const data_lifecycle_info_sheet3 = ref(null)
-data_lifecycle_info.value = await fetchDataAndParse_batched();
-data_lifecycle_info_sheet1.value = data_lifecycle_info.value[0];
-data_lifecycle_info_sheet2.value = data_lifecycle_info.value[1];
-data_lifecycle_info_sheet3.value = data_lifecycle_info.value[2];
+const data_lifecycle_info_sheet1 = ref([])
+const data_lifecycle_info_sheet2 = ref([])
+const data_lifecycle_info_sheet3 = ref([])
+fetchDataAndParse_batched(0, data_lifecycle_info_sheet1);
+fetchDataAndParse_batched(1021772098, data_lifecycle_info_sheet2);
+fetchDataAndParse_batched(1947282418, data_lifecycle_info_sheet3);
 
 function getMetadataById(id) {
   let output = ["Title", "Description", "Outcome", "Notes"]
