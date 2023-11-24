@@ -1,6 +1,4 @@
 <template>
-  <Selector v-model="selectedStep" />
-  <p>Selected step: {{ selectedStep }}</p>
   <div class="toppane">
     <h1 class="font">MACHINE LEARNING LIFECYCLE</h1><br><br>
   </div>
@@ -27,7 +25,6 @@
 </template>
 
 <script setup>
-import Selector from "~/components/Selector.vue";
 import MetadataModal from "~/components/MetadataModal.vue";
 // import lifecycle from "../static/img/ML_lifecycle.svg";
 import Card from "~/components/Card.vue";
@@ -56,14 +53,12 @@ const fetchData = async () => {
 
 const fetchData_by_page = async (page_id) => {
   try {
-    console.log(page_id);
     const url = `https://docs.google.com/spreadsheets/d/e/2PACX-1vSD-IZNefqzcbHEDEvDQWSxClCuPeAhP6Jh0RwVBuSi8DdmRYsQs8UrPUv62__T9bgk0I1GhCSEY6Gn/pub?output=tsv&gid=${page_id}`
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const data = await response.text();
-    // console.log(data);
     return data;
   } catch (error) {
     console.error('Error fetching data from Google Sheets:', error);
@@ -82,7 +77,6 @@ const parseText = (textData) => {
     skipEmptyLines: true,
     delimiter: "\t"
   }).data;
-  console.log(rows);
   return rows;
 };
 
@@ -101,7 +95,6 @@ async function fetchDataAndParse_batched() {
   // let ids =  [0, 1, 2]
   let results = [];
   for (let i = 0; i < ids.length; i++) {
-    // console.log(ids[i]);
     const data = await fetchData_by_page(ids[i]);
 
     if (data) {
