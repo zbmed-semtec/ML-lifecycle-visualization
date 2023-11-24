@@ -27,7 +27,7 @@
     </template>
   </tbody>
     <table border="1">
-        
+  </table>
   <!-- <caption>
     ML Life Cycle Visualization <br>
   </caption> -->
