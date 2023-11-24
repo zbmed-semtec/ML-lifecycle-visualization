@@ -35,30 +35,28 @@
 
 <style scoped>
 
-table ,th, td{
+table, th, td {
   border: 1px solid;
   font-size: 18px;
   border-collapse: collapse;
   
 }
-table{
+table {
   width: 80%;
 }
 
-th
-    {
-      background-color:lightblue;
-      color:black;
-      
-    }
+th {
+  background-color:lightblue;
+  color:black;
+}
 
 td {
   text-align: center;
   font-size: 15px
   
 }
-tr
-{
+
+tr {
   background-color:lightgray;
   color:black;
 }
