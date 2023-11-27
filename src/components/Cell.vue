@@ -5,7 +5,7 @@
   </td>
 </template>
 
-<script setup>
+<script setup lang="ts">
 defineProps(['cellData'])
 </script>
 

@@ -49,10 +49,16 @@
   </table>
 </template>
  
-<script setup>
-defineProps(['data', 'selectedStep', 'overrideColor'])
+<script setup lang="ts">
+import Cell from './Cell.vue'
 
-function getRowColorClass(row) {
+defineProps<{
+  data: any[],
+  selectedStep?: number,
+  overrideColor?: string
+}>()
+
+function getRowColorClass(row: any) {
   switch (row.NodeID) {
     case '1':
       return 'row-id-1';
@@ -78,50 +84,17 @@ function getRowColorClass(row) {
   }
 }
 
-
 </script>
 
 <style scoped>
 
-th
-    {
-      background-color:lightgrey;
-      color:black;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-    
-/* table ,th, td{
-  border: 1px solid;
-  font-size: 18px;
-  border-collapse: collapse;
-  margin: 0 auto;
-}
-
-table{
-  width: 80%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-th
-    {
-      background-color:lightblue;
-      color:black;
-      
-    }
-
-td {
+th {
+  background-color:lightgrey;
+  color:black;
   text-align: center;
-  font-size: 15px
-  
-} */
-
-/* tr {
-  background-color: lightgray;
-  color: black;
-} */
+  white-space: nowrap;
+  overflow: hidden;
+}
 
 .row-id-1 {
   background-color: #FFF2CC;

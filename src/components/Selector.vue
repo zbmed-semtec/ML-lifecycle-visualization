@@ -2,7 +2,7 @@
    <div>
       <label>
          Select a step:
-         <select @change="$emit('update:modelValue', $event.target.value)">
+         <select @change="onChange">
             <option v-for="option of options" :value="option" :selected="option === modelValue ? true : false">
                {{ option }}
             </option>
@@ -11,10 +11,16 @@
    </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 defineProps(['modelValue'])
-defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue'])
 const options = Array.from({ length: 10 }, (_, index) => `${index + 1}`);
+
+
+function onChange(ev: Event) {
+   const target = ev.target as HTMLSelectElement
+   emit('update:modelValue', target.value)
+}
 </script>
 
 <style scoped></style>

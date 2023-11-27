@@ -31,7 +31,7 @@
                         </table>
                     </div>
                     <div class="table-wrapper" :style="{ backgroundColor: bgAltColor }">
-                        <Table v-if="tableData" :data="tableData" :selected-step="modelValue" :overrideColor="bgAltColor" />
+                        <Table v-if="tableData" :data="tableData" :selectedStep="modelValue" :overrideColor="bgAltColor" />
                     </div>
                     <div class="table-wrapper">
                         <p class="fw-bold" style="margin-top: 1rem">Next steps:</p>
@@ -59,52 +59,57 @@
     </div>
 </template>
 
-<script setup>
-import app from '../app.vue'
+<script setup lang="ts">
 import { Modal } from 'bootstrap'
-import Table from '~/components/Table.vue'
 import convert from 'color-convert'
+import { onMounted, onUnmounted } from 'vue'
+import Table from './Table.vue'
 
-const props = defineProps({
-    modalData: Array,
-    tableData: Array,
-    edgesData: Array,
-    modelValue: String,
-    backgroundColor: String
-})
+const props = defineProps<{
+    modalData: any[],
+    tableData: any[],
+    edgesData: any[],
+    modelValue: number,
+    backgroundColor: string
+}>()
+
 
 const bgColor = props.backgroundColor
-let bgAltColor = convert.hex.hsl(bgColor)
-if (bgAltColor[2] > 90) {
-    bgAltColor[2] -= 5
+let bgAltColorHsl = convert.hex.hsl(bgColor)
+if (bgAltColorHsl[2] > 90) {
+    bgAltColorHsl[2] -= 5
 }
 else {
-    bgAltColor[2] += 5
+    bgAltColorHsl[2] += 5
 }
 
-if (bgAltColor[1] < 10) {
-    bgAltColor[1] += 5
+if (bgAltColorHsl[1] < 10) {
+    bgAltColorHsl[1] += 5
 }
 else {
-    bgAltColor[1] -= 5
+    bgAltColorHsl[1] -= 5
 }
-bgAltColor = "#" + convert.hsl.hex(bgAltColor)
-const emits = defineEmits(['update:modelValue'])
+const bgAltColor = "#" + convert.hsl.hex(bgAltColorHsl)
+const emit = defineEmits(['update:modelValue'])
 
-let modal
+let modal: Modal|null = null
 
 onMounted(() => {
-    modal = new Modal(document.getElementById('metadataModal'))
+    const modalEl = document.getElementById('metadataModal')
+    if (!modalEl) return
+
+    modal = new Modal(modalEl)
     modal.show()
-    document.getElementById('metadataModal').addEventListener("hidden.bs.modal", hide)
+    modalEl.addEventListener("hidden.bs.modal", hide)
 })
 
 onUnmounted(() => {
-    modal.hide()
+    if (modal)
+        modal.hide()
 })
 
 function hide() {
-    emits('update:modelValue', -1)
+    emit('update:modelValue', -1)
 }
 
 </script>
