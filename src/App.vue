@@ -14,9 +14,9 @@
   </div>
 
   <div>
-    <MetadataModal v-if="selectedStep >= 0" v-model="selectedStep" :modalData="getMetadataById(selectedStep)"
-      :tableData="data_lifecycle_info_sheet1" :edgesData="data_lifecycle_info_sheet3"
-      :backgroundColor="modal.backgroundColor" />
+    <MetadataModal v-if="selectedStep >= 0 && data_lifecycle_info_sheet2.length > 0" v-model="selectedStep"
+      :modalData="getMetadataById(selectedStep)" :tableData="data_lifecycle_info_sheet1"
+      :edgesData="data_lifecycle_info_sheet3" :backgroundColor="modal.backgroundColor" />
   </div>
 </template>
 
