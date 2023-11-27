@@ -87,10 +87,9 @@ function getRowColorClass(row: any) {
 </script>
 
 <style scoped>
-
 th {
-  background-color:lightgrey;
-  color:black;
+  background-color: lightgrey;
+  color: black;
   text-align: center;
   white-space: nowrap;
   overflow: hidden;

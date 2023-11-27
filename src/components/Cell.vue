@@ -1,7 +1,7 @@
 <template>
   <td>
     <a v-if="cellData.startsWith('http')" :href="cellData">{{ cellData }}</a>
-    <span v-else>{{cellData}}</span>
+    <span v-else>{{ cellData }}</span>
   </td>
 </template>
 
@@ -9,5 +9,4 @@
 defineProps(['cellData'])
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
