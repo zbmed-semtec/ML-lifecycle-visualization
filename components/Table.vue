@@ -82,22 +82,21 @@ function getRowColorClass(row) {
 </script>
 
 <style scoped>
+th {
+  background-color: lightgrey;
+  color: black;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  border: 15px solid lightgray;
+}
 
-th
-    {
-      background-color:lightgrey;
-      color:black;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      border: 15px solid lightgray;
-    }
-
-table{
+table {
   width: 80%;
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 /* table ,th, td{
   border: 1px solid;
   font-size: 18px;
@@ -125,6 +124,14 @@ td {
   background-color: lightgray;
   color: black;
 } */
+
+th {
+  background-color: lightgrey;
+  color: black;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
 
 .row-color-1 {
   background-color: #FFF2CC;
