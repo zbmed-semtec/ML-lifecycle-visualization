@@ -95,6 +95,12 @@ th {
   overflow: hidden;
 }
 
+table {
+  width: 80%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .row-id-1 {
   background-color: #FFF2CC;
 }
@@ -125,8 +131,9 @@ th {
 
 tr:hover {
   cursor: pointer;
-  border: 2px solid #555;
+  border: 1px solid #555;
   background-image: linear-gradient(rgb(0 0 0/5%) 0 0);
+  font-weight: bold;
 }
 
 td {

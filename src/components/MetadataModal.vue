@@ -43,9 +43,9 @@
               </thead>
               <tbody>
                 <template v-for="edge of edgesData">
-                  <tr v-if="edge['Start_node'] == modelValue">
-                    <!-- TODO: Replace End_node with the corresponding node name -->
-                    <td :style="{ backgroundColor: bgAltColor }">{{ edge['End_node'] }}</td>
+                  <tr v-bind:key="edge" v-if="edge['Start_node'] == modelValue.toString()"
+                    @click="moveToNextStep(edge['End_node'])" class="selection">
+                    <td :style="{ backgroundColor: bgAltColor }">{{ nodeNames[parseInt(edge['End_node']) - 1] }}</td>
                     <td :style="{ backgroundColor: bgAltColor }"> {{ edge['Comment'] }}</td>
                   </tr>
                 </template>
@@ -69,26 +69,32 @@ const props = defineProps<{
   tableData: any[],
   edgesData: any[],
   modelValue: number,
-  backgroundColor: string
+  backgroundColor: string,
+  nodeNames: string[]
 }>()
 
 
-const bgColor = props.backgroundColor
-let bgAltColorHsl = convert.hex.hsl(bgColor)
-if (bgAltColorHsl[2] > 90) {
-  bgAltColorHsl[2] -= 5
-}
-else {
-  bgAltColorHsl[2] += 5
-}
+let bgColor = props.backgroundColor
 
-if (bgAltColorHsl[1] < 10) {
-  bgAltColorHsl[1] += 5
+function create_bgAltColor(org_color: string) {
+  let bgAltColorHsl = convert.hex.hsl(org_color)
+  if (bgAltColorHsl[2] > 90) {
+    bgAltColorHsl[2] -= 5
+  }
+  else {
+    bgAltColorHsl[2] += 5
+  }
+
+  if (bgAltColorHsl[1] < 10) {
+    bgAltColorHsl[1] += 5
+  }
+  else {
+    bgAltColorHsl[1] -= 5
+  }
+  let bgAltColor = "#" + convert.hsl.hex(bgAltColorHsl)
+  return bgAltColor
 }
-else {
-  bgAltColorHsl[1] -= 5
-}
-const bgAltColor = "#" + convert.hsl.hex(bgAltColorHsl)
+let bgAltColor = create_bgAltColor(bgColor)
 const emit = defineEmits(['update:modelValue'])
 
 let modal: Modal | null = null
@@ -111,6 +117,38 @@ function hide() {
   emit('update:modelValue', -1)
 }
 
+function moveToNextStep(step: string) {
+  emit('update:modelValue', parseInt(step))
+  const class_color = getRowColorClass(parseInt(step));
+  bgColor = class_color;
+  bgAltColor = create_bgAltColor(class_color);
+}
+
+function getRowColorClass(id: number) {
+  switch (id) {
+    case 1:
+      return '#FFF2CC';
+    case 2:
+    case 3:
+      return '#D5E8D4';
+    case 4:
+    case 5:
+    case 6:
+      return '#DAE8FC';
+    case 7:
+      return '#A9C4EB';
+    case 8:
+      return '#E1D5E7';
+    case 9:
+      return '#FFE6CC';
+    case 10:
+      return 'r#F0A30A';
+
+    // Add more cases for other NodeID values as needed
+    default:
+      return ''; // Default or fallback class
+  }
+}
 </script>
 
 <style scoped>

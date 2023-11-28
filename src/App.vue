@@ -16,7 +16,7 @@
   <div>
     <MetadataModal v-if="selectedStep >= 0 && data_lifecycle_info_sheet2.length > 0" v-model="selectedStep"
       :modalData="getMetadataById(selectedStep)" :tableData="data_lifecycle_info_sheet1"
-      :edgesData="data_lifecycle_info_sheet3" :backgroundColor="modal.backgroundColor" />
+      :edgesData="data_lifecycle_info_sheet3" :backgroundColor="modal.backgroundColor" :nodeNames="getNodeNames()" />
   </div>
 </template>
 
@@ -86,6 +86,14 @@ function getMetadataById(id: number) {
     }
   }
   return output;
+}
+
+function getNodeNames() {
+  const output = [];
+  for (let row in data_lifecycle_info_sheet2.value) {
+    output.push(data_lifecycle_info_sheet2.value[row]["Name"]);
+  }
+  return output as string[];
 }
 </script>
 
