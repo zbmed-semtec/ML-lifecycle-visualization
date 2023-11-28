@@ -1,6 +1,6 @@
-# ML-lifecycle-visualization-Vue
+# ML-lifecycle-visualization
 
-This template should help get you started developing with Vue 3 in Vite.
+Machine learning lifecycle visualization providing a checklist for steps necessary in a machine learning project.
 
 ## Recommended IDE Setup
 
