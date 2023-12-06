@@ -103,15 +103,14 @@ html {
 }
 
 table {
-  margin-left: 4%;
-  margin-right: 4%;
+  margin-left: 8%;
+  margin-right: 8%;
 }
 
 th,
 td {
   border: 1px solid;
   font-size: 15px;
-  width: 80;
   border-collapse: collapse;
 }
 

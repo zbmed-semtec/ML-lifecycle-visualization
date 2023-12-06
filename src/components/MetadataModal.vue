@@ -153,7 +153,7 @@ function getRowColorClass(id: number) {
 
 <style scoped>
 .come-from-modal.left .modal-dialog {
-  margin-top: 10%;
+  margin-top: 5%;
   margin-right: 5%;
   margin-left: 52%;
   height: 100%;
