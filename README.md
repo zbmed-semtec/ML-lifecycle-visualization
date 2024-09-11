@@ -36,6 +36,9 @@ In case your edit resulted in the deletion or addition of a node or edge, make s
 
 ## Project Setup
 
+Make sure to have Node.js version 18 installed on your machine, and set it as the default version in your terminal.
+We recommend using nvm if you have multiple versions of node installed, here is a [tutorial](https://www.sitepoint.com/quick-tip-multiple-versions-node-nvm/).
+
 ```sh
 npm install
 ```
