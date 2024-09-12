@@ -97,8 +97,23 @@ th {
 
 table {
   width: 80%;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem;
+  border-collapse: collapse; /* Add this line */
+}
+
+td, th {
+  border: 1px solid #c0b5b5; /* Light grey border */
+  padding: 8px; 
+}
+
+tr:hover td {
+  background-image: linear-gradient(rgb(0 0 0/2%) 0 0);
+  border: 1px solid #b3b3b3;
+  /* font-weight: bold; */
+}
+
+td {
+  text-align: center;
 }
 
 .row-id-1 {
@@ -129,14 +144,4 @@ table {
   background-color: #F0A30A;
 }
 
-tr:hover {
-  cursor: pointer;
-  border: 1px solid #555;
-  background-image: linear-gradient(rgb(0 0 0/5%) 0 0);
-  font-weight: bold;
-}
-
-td {
-  text-align: center;
-}
 </style>

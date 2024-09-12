@@ -8,7 +8,7 @@
   </div>
   <br /><br /><br /><br />
 
-  <div class="centered-table border">
+  <div class="centered-table">
     <Table v-if="data_lifecycle_info_sheet1" :data="data_lifecycle_info_sheet1" />
     <p v-else>loading</p>
   </div>
@@ -103,15 +103,20 @@ html {
 }
 
 table {
-  margin-left: 8%;
-  margin-right: 8%;
+  margin-left: 3em;
+  margin-right: 3em;
+}
+
+.centered-table {
+  display: grid;
+  place-items: center;
 }
 
 th,
 td {
   border: 1px solid;
   font-size: 15px;
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
 }
 
 th {

@@ -44,9 +44,10 @@
               <tbody>
                 <template v-for="edge of edgesData">
                   <tr v-bind:key="edge" v-if="edge['Start_node'] == modelValue.toString()"
-                    @click="moveToNextStep(edge['End_node'])" class="selection">
-                    <td :style="{ backgroundColor: bgAltColor }">{{ nodeNames[parseInt(edge['End_node']) - 1] }}</td>
-                    <td :style="{ backgroundColor: bgAltColor }"> {{ edge['Comment'] }}</td>
+                    @click="moveToNextStep(edge['End_node'])" class="selection"
+                    :id="edge['End_node']">
+                    <td :id="'next-steps'" :style="{ backgroundColor: bgAltColor }">{{ nodeNames[parseInt(edge['End_node']) - 1] }}</td>
+                    <td :id="'next-steps'" :style="{ backgroundColor: bgAltColor }"> {{ edge['Comment'] }}</td>
                   </tr>
                 </template>
               </tbody>
@@ -158,6 +159,28 @@ function getRowColorClass(id: number) {
   margin-left: 52%;
   height: 100%;
   transform: translate3d(0%, 0, 0);
+  /* padding: 3%; */
+}
+
+/* tr:hover {
+  border: 1px;
+  background-image: linear-gradient(rgb(0 0 0/5%) 0 0);
+  font-weight: bold;
+} */
+
+tr:hover td#next-steps{
+  cursor: pointer;
+  background-image: linear-gradient(rgb(0 0 0/2%) 0 0);
+  border-top: 3px solid #8a8a8a;
+  border-bottom: 3px solid #8a8a8a;
+}
+
+tr:hover td#next-steps:first-child {
+  border-left: 3px solid #8a8a8a;
+}
+
+tr:hover td#next-steps:last-child {
+  border-right: 3px solid #8a8a8a;
 }
 
 .table-wrapper {
