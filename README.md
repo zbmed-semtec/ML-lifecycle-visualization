@@ -1,5 +1,7 @@
 # ML-lifecycle-visualization
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15126201.svg)](https://doi.org/10.5281/zenodo.15126201) [![Release](https://img.shields.io/badge/Release-1.0.0-orange)](#) 
+
 Machine learning lifecycle visualization providing a checklist for steps necessary in a machine learning project.\
 
 ## Editing data
