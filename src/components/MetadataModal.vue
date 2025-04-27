@@ -32,12 +32,26 @@
               </tbody>
             </table>
           </div>
-          <div class="table-wrapper" :style="{ backgroundColor: bgAltColor }">
-            <Table v-if="tableData" :data="tableData" :selectedStep="modelValue" :overrideColor="bgAltColor" />
+          <div class="table-wrapper fair-principles-wrapper">
+            <div class="section-header">
+              <div class="section-title">FAIR Principles</div>
+              <div class="section-subtitle">Principles and best practices relevant to this stage</div>
+            </div>
+            <div class="fair-principles-content">
+              <div class="two-column-layout">
+                <div class="table-column">
+                  <Table v-if="tableData" :data="tableData" :selectedStep="modelValue" :overrideColor="bgAltColor" />
+                </div>
+                <div class="spacer-column"></div>
+              </div>
+            </div>
           </div>
-          <div class="table-wrapper">
-            <p class="fw-bold" style="margin-top: 1rem">Next steps:</p>
-            <table class="table" :overrideColor="bgAltColor">
+          <div class="table-wrapper next-steps-wrapper">
+            <div class="section-header">
+              <div class="section-title">Next steps</div>
+              <div class="section-subtitle">Choose where to go next in the ML lifecycle</div>
+            </div>
+            <table class="table next-steps-table" :overrideColor="bgAltColor">
               <thead>
                 <tr>
                   <th scope="col" :style="{ backgroundColor: bgAltColor }">To</th>
@@ -210,6 +224,145 @@ function stopResize() {
 </script>
 
 <style scoped>
+/* Two-column layout */
+.two-column-layout {
+  display: flex;
+  width: 100%;
+}
+
+.table-column {
+  flex: 1;
+  overflow-x: auto;
+}
+
+.spacer-column {
+  width: 10px; /* Adjust this width as needed */
+  min-width: 10px;
+}
+
+/* Section styling for both FAIR principles and Next steps */
+.section-header {
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--primary-color, #2c3e50);
+  margin-bottom: 0.3rem;
+}
+
+.section-subtitle {
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+/* FAIR Principles section styling */
+.fair-principles-wrapper {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.fair-principles-content {
+  margin: 0.5rem;
+}
+
+.fair-principles-content :deep(table) {
+  margin-bottom: 0;
+  background-color: transparent;
+  margin-right: 0;
+  width: 100%;
+}
+
+.fair-principles-content :deep(th) {
+  background-color: rgba(0, 0, 0, 0.02);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-color: #e9ecef;
+}
+
+.fair-principles-content :deep(td) {
+  transition: all 0.2s ease;
+}
+
+.fair-principles-content :deep(tr:hover td) {
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Next steps specific styling */
+.next-steps-wrapper {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+}
+
+.next-steps-table {
+  margin-bottom: 0.5rem;
+}
+
+.next-steps-table thead th {
+  background-color: rgba(0, 0, 0, 0.02);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Selection rows styling */
+tr.selection {
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+tr.selection:hover {
+  transform: translateY(-1px);
+}
+
+tr.selection:hover td {
+  background-color: rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.1);
+}
+
+tr.selection:hover td#next-steps {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: transparent;
+}
+
+tr.selection:hover td#next-steps::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color, #4a8af4) 0%, var(--primary-color-light, rgba(100, 150, 255, 0.7)) 100%);
+}
+
+tr.selection:hover td#next-steps:first-child::before {
+  border-top-left-radius: 4px;
+}
+
+tr.selection:hover td#next-steps:last-child::before {
+  border-top-right-radius: 4px;
+}
+
+tr.selection:hover td#next-steps:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+tr.selection:hover td#next-steps:last-child {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
 /* Modal positioning on right side */
 .come-from-modal.right .modal-dialog {
   margin-top: 5%;
@@ -317,36 +470,11 @@ tbody td {
   color: #2c3e50;
 }
 
-/* Selection rows styling */
-tr.selection {
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-tr.selection:hover td {
-  background-color: rgba(0, 0, 0, 0.03);
-}
-
-tr.selection:hover td#next-steps {
-  border-color: #a0a0a0;
-}
-
-tr.selection:hover td#next-steps:first-child {
-  border-left: 2px solid #a0a0a0;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-
-tr.selection:hover td#next-steps:last-child {
-  border-right: 2px solid #a0a0a0;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
 .table-wrapper {
   max-width: 100%;
   overflow-x: auto;
   margin-bottom: 1.5rem;
+  padding-right: 1rem;
   border-radius: 6px;
 }
 
