@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" style="background-color:#fff" xmlns:xlink="http://www.w3.org/1999/xlink" width="677" height="1020" viewBox="-0.5 -0.5 677 1020">
   <g data-step="1">
-  <rect x="247" width="200" height="80" rx="12" ry="12" fill="#f9efe4" pointer-events="all"/>
+  <rect x="247" width="200" height="80" rx="12" ry="12" fill="#ffeccc" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
       <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:198px;height:1px;padding-top:40px;margin-left:248px">
@@ -21,7 +21,7 @@
   <path d="M192 250v91.76" fill="none" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke"/>
   <path d="m192 347.76-4-8 4 2 4-2Z" fill="#666" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
   <g data-step="3">
-  <rect x="94.5" y="350" width="195" height="80" rx="12" ry="12" fill="#e9f5e9" pointer-events="all"/>
+  <rect x="94.5" y="350" width="195" height="80" rx="12" ry="12" fill="#e0f2e0" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
       <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:197px;height:1px;padding-top:390px;margin-left:94px">
@@ -42,7 +42,7 @@
   <path d="M507 250v31.76" fill="none" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke"/>
   <path d="m507 287.76-4-8 4 2 4-2Z" fill="#666" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
   <g data-step="4">
-  <rect x="407" y="170" width="200" height="80" rx="12" ry="12" fill="#e1f0fa" pointer-events="all"/>
+  <rect x="407" y="170" width="200" height="80" rx="12" ry="12" fill="#e1f5fe" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
       <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:198px;height:1px;padding-top:210px;margin-left:408px">
@@ -63,7 +63,7 @@
   <path d="M507 370v31.76" fill="none" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke"/>
   <path d="m507 407.76-4-8 4 2 4-2Z" fill="#666" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
   <g data-step="5">
-  <rect x="407" y="290" width="200" height="80" rx="12" ry="12" fill="#e1f0fa" pointer-events="all"/>
+  <rect x="407" y="290" width="200" height="80" rx="12" ry="12" fill="#e1f5fe" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
       <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:198px;height:1px;padding-top:330px;margin-left:408px">
@@ -89,7 +89,7 @@
   <path d="m347 577.76-4-8 4 2 4-2Z" fill="#666" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
   <path d="M407 450.5h-39.5L367 400" fill="none" stroke="#000" stroke-miterlimit="10" stroke-dasharray="1 1" pointer-events="stroke"/>
   <g data-step="6">
-  <rect x="407" y="410" width="200.01" height="81" rx="12.15" ry="12.15" fill="#e1f0fa" pointer-events="all"/>
+  <rect x="407" y="410" width="200.01" height="81" rx="12.15" ry="12.15" fill="#e1f5fe" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
       <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:198px;height:1px;padding-top:451px;margin-left:408px">
@@ -110,7 +110,7 @@
   <path d="M347 660v50h175v41.76" fill="none" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke"/>
   <path d="m522 757.76-4-8 4 2 4-2Z" fill="#666" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
   <g data-step="7">
-  <rect x="247" y="580" width="200" height="80" rx="12" ry="12" fill="#c9e2f3" pointer-events="all"/>
+  <rect x="247" y="580" width="200" height="80" rx="12" ry="12" fill="#b3e5fc" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
       <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:202px;height:1px;padding-top:620px;margin-left:246px">
@@ -125,7 +125,7 @@
   </switch>
   </g>
   <g data-step="8">
-  <rect x="77" y="760" width="230" height="90" rx="13.5" ry="13.5" fill="#eadef4" pointer-events="all"/>
+  <rect x="77" y="760" width="230" height="90" rx="13.5" ry="13.5" fill="#e8e3f4" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
       <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:228px;height:1px;padding-top:805px;margin-left:78px">
@@ -142,7 +142,7 @@
   <path d="M522 850v40H347v31.76" fill="none" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke"/>
   <path d="m347 927.76-4-8 4 2 4-2Z" fill="#666" stroke="#666" stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
   <g data-step="9">
-  <rect x="407" y="760" width="230" height="90" rx="13.5" ry="13.5" fill="#fce5d4" pointer-events="all"/>
+  <rect x="407" y="760" width="230" height="90" rx="13.5" ry="13.5" fill="#ffe0d6" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
       <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:228px;height:1px;padding-top:805px;margin-left:408px">
@@ -163,7 +163,7 @@
   <path d="M252 975H7V210h83.63" fill="none" stroke="#000" stroke-miterlimit="10" stroke-dasharray="8 8" pointer-events="stroke"/>
   <path d="m95.88 210-7 3.5 1.75-3.5-1.75-3.5Z" stroke="#000" stroke-miterlimit="10" pointer-events="all"/>
   <g data-step="10">
-  <rect x="252" y="930" width="190" height="90" rx="13.5" ry="13.5" fill="#f5d1af" pointer-events="all"/>
+  <rect x="252" y="930" width="190" height="90" rx="13.5" ry="13.5" fill="#ffd2c3" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
       <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:188px;height:1px;padding-top:975px;margin-left:253px">
@@ -182,7 +182,7 @@
   </switch>
   </g>
   <g data-step="2">
-  <rect x="97" y="170" width="190" height="80" rx="12" ry="12" fill="#e9f5e9" pointer-events="all"/>
+  <rect x="97" y="170" width="190" height="80" rx="12" ry="12" fill="#e0f2e0" pointer-events="all"/>
   <switch transform="translate(-.5 -.5)">
     <foreignObject style="overflow:visible;text-align:left" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
       <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:188px;height:1px;padding-top:210px;margin-left:98px">
