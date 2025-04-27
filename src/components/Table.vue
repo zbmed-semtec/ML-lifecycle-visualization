@@ -83,65 +83,101 @@ function getRowColorClass(row: any) {
       return ''; // Default or fallback class
   }
 }
-
 </script>
 
 <style scoped>
 th {
-  background-color: lightgrey;
-  color: black;
+  background-color: #eaedf0;
+  color: #2c3e50;
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
+  font-weight: 600;
+  padding: 12px 15px;
+  font-size: 0.9rem;
+  border: 1px solid #dee2e6;
 }
 
 table {
-  width: 80%;
-  margin: 1rem;
-  border-collapse: collapse; /* Add this line */
+  width: 85%;
+  margin: 2rem auto;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  border: 1px solid #dee2e6;
 }
 
 td, th {
-  border: 1px solid #c0b5b5; /* Light grey border */
-  padding: 8px; 
+  border: 1px solid #dee2e6;
+  padding: 12px 15px;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+thead tr {
+  border-bottom: 2px solid #dee2e6;
+  background-color: #e9ecef;
+}
+
+tbody tr:last-child td {
+  border-bottom: 1px solid #dee2e6;
 }
 
 tr:hover td {
-  background-image: linear-gradient(rgb(0 0 0/2%) 0 0);
-  border: 1px solid #b3b3b3;
-  /* font-weight: bold; */
+  background-color: rgba(0, 0, 0, 0.02);
 }
 
 td {
-  text-align: center;
+  text-align: left;
+  font-size: 0.95rem;
+  color: #495057;
+  vertical-align: middle;
+  transition: background-color 0.15s ease-in-out;
 }
 
+/* Update color palette to match the new SVG colors */
 .row-id-1 {
-  background-color: #FFF2CC;
+  background-color: #f9efe4;
 }
 
 .row-id-2 {
-  background-color: #D5E8D4;
+  background-color: #e9f5e9;
 }
 
 .row-id-3 {
-  background-color: #DAE8FC;
+  background-color: #e1f0fa;
 }
 
 .row-id-4 {
-  background-color: #A9C4EB;
+  background-color: #c9e2f3;
 }
 
 .row-id-5 {
-  background-color: #E1D5E7;
+  background-color: #eadef4;
 }
 
 .row-id-6 {
-  background-color: #FFE6CC;
+  background-color: #fce5d4;
 }
 
 .row-id-7 {
-  background-color: #F0A30A;
+  background-color: #f5d1af;
 }
 
+/* Add responsive adjustments */
+@media (max-width: 768px) {
+  table {
+    width: 95%;
+  }
+  
+  th, td {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+}
 </style>
