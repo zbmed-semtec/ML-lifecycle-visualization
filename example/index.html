@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ML Lifecycle Visualization Example</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    
+    header {
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    
+    main {
+      padding: 1rem;
+    }
+    
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+  
+  <!-- Import Vue as a dependency -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  
+  <!-- Import the component UMD bundle -->
+  <!-- This script will register the <ml-lifecycle-visualization> custom element -->
+  <script src="../ml-lifecycle-visualization.umd.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Example Website</h1>
+  </header>
+  
+  <main>
+    <h2>ML Lifecycle Visualization Component Example</h2>
+    <p>This is an example of embedding the ML Lifecycle Visualization component in another website:</p>
+    
+    <!-- Use the custom element -->
+    <ml-lifecycle-visualization></ml-lifecycle-visualization>
+  </main>
+  
+  <footer>
+    <p>Example Footer © 2023</p>
+  </footer>
+</body>
+</html> 

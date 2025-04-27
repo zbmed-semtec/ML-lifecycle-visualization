@@ -1,3 +1,113 @@
+# ML Lifecycle Visualization
+
+A reusable web component that visualizes the machine learning lifecycle. This component can be used in any web application, regardless of framework (React, Angular, Vue, or plain HTML).
+
+## Installation
+
+```bash
+npm install ml-lifecycle-visualization
+```
+
+## Usage
+
+### In Plain HTML
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ML Lifecycle Visualization Example</title>
+  <!-- Import Vue as a dependency -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- Import the component -->
+  <script src="https://unpkg.com/ml-lifecycle-visualization/dist/ml-lifecycle-visualization.umd.js"></script>
+</head>
+<body>
+  <!-- Use the component -->
+  <ml-lifecycle-visualization></ml-lifecycle-visualization>
+</body>
+</html>
+```
+
+### In React
+
+```jsx
+import React, { useEffect } from 'react';
+import { initMLLifecycleComponent } from 'ml-lifecycle-visualization';
+
+function MLLifecycleWrapper() {
+  useEffect(() => {
+    // Initialize the component
+    initMLLifecycleComponent();
+  }, []);
+
+  return <ml-lifecycle-visualization></ml-lifecycle-visualization>;
+}
+
+export default MLLifecycleWrapper;
+```
+
+### In Vue
+
+```vue
+<template>
+  <ml-lifecycle-visualization></ml-lifecycle-visualization>
+</template>
+
+<script setup>
+import { onMounted } from 'vue';
+import { initMLLifecycleComponent } from 'ml-lifecycle-visualization';
+
+onMounted(() => {
+  initMLLifecycleComponent();
+});
+</script>
+```
+
+### In Angular
+
+```typescript
+// Component
+import { Component, OnInit } from '@angular/core';
+import { initMLLifecycleComponent } from 'ml-lifecycle-visualization';
+
+@Component({
+  selector: 'app-ml-lifecycle',
+  template: '<ml-lifecycle-visualization></ml-lifecycle-visualization>',
+})
+export class MLLifecycleComponent implements OnInit {
+  ngOnInit() {
+    initMLLifecycleComponent();
+  }
+}
+
+// Module - you need to add CUSTOM_ELEMENTS_SCHEMA
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+@NgModule({
+  declarations: [MLLifecycleComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] // Required for custom elements
+})
+export class AppModule { }
+```
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## License
+
+MIT
+
 # ML-lifecycle-visualization
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15126201.svg)](https://doi.org/10.5281/zenodo.15126201) [![Release](https://img.shields.io/badge/Release-1.0.0-orange)](#) 
