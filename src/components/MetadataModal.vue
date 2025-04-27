@@ -76,7 +76,7 @@
                 <template v-for="edge of edgesData">
                   <tr v-bind:key="edge" v-if="edge['Start_node'] == modelValue.toString()"
                     @click="moveToNextStep(edge['End_node'])" class="selection"
-                    :id="edge['End_node']">
+                    :id="edge['End_node']" @mouseenter="handleNextStepHover(edge['End_node'])" @mouseleave="handleNextStepLeave">
                     <td :id="'next-steps'" :style="{ backgroundColor: bgAltColor }">{{ nodeNames[parseInt(edge['End_node']) - 1] }}</td>
                     <td :id="'next-steps'" :style="{ backgroundColor: bgAltColor }"> {{ edge['Comment'] }}</td>
                   </tr>
@@ -94,7 +94,7 @@
 <script setup lang="ts">
 import { Modal } from 'bootstrap'
 import convert from 'color-convert'
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, watch } from 'vue'
 import type { Ref } from 'vue'
 import Table from './Table.vue'
 
@@ -107,6 +107,8 @@ const props = defineProps<{
   nodeNames: string[]
 }>()
 
+// Create custom event for hovering over next steps
+const emit = defineEmits(['update:modelValue', 'hoverStep', 'leaveHoverStep'])
 
 let bgColor = props.backgroundColor
 
@@ -129,7 +131,6 @@ function create_bgAltColor(org_color: string) {
   return bgAltColor
 }
 let bgAltColor = create_bgAltColor(bgColor)
-const emit = defineEmits(['update:modelValue'])
 
 let modal: Modal | null = null
 const modalDialogRef: Ref<HTMLElement | null> = ref(null)
@@ -139,6 +140,15 @@ const startX = ref(-100)
 const startWidth = ref(0)
 
 const MIN_MODAL_WIDTH = 500 // Increased minimum width
+
+// Hover functionality for next steps
+function handleNextStepHover(stepId: string) {
+  emit('hoverStep', parseInt(stepId))
+}
+
+function handleNextStepLeave() {
+  emit('leaveHoverStep')
+}
 
 onMounted(() => {
   const modalEl = document.getElementById('metadataModal')

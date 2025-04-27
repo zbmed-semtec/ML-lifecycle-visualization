@@ -5,7 +5,7 @@
     </header>
     
     <div>
-      <Card v-model:backgroundColor="modal.backgroundColor" v-model="selectedStep" />
+      <Card v-model:backgroundColor="modal.backgroundColor" v-model="selectedStep" ref="cardRef" />
     </div>
 
     <div class="centered-table">
@@ -16,7 +16,8 @@
     <div>
       <MetadataModal v-if="selectedStep >= 0 && data_lifecycle_info_sheet2.length > 0" v-model="selectedStep"
         :modalData="getMetadataById(selectedStep)" :tableData="data_lifecycle_info_sheet1"
-        :edgesData="data_lifecycle_info_sheet3" :backgroundColor="modal.backgroundColor" :nodeNames="getNodeNames()" />
+        :edgesData="data_lifecycle_info_sheet3" :backgroundColor="modal.backgroundColor" :nodeNames="getNodeNames()" 
+        @hover-step="handleHoverStep" @leave-hover-step="handleLeaveHoverStep" />
     </div>
   </div>
 </template>
@@ -32,6 +33,7 @@ import Papa from "papaparse";
 
 const selectedStep = ref(-1);
 const modal = reactive({ showModal: false, backgroundColor: "#FFF" });
+const cardRef = ref(null);
 
 const fetchDataByPage = async (pageId: number) => {
   try {
@@ -96,11 +98,25 @@ function getNodeNames() {
   }
   return output as string[];
 }
+
+// Hover interaction handlers
+function handleHoverStep(stepId: number) {
+  if (cardRef.value && typeof cardRef.value.temporaryHighlight === 'function') {
+    cardRef.value.temporaryHighlight(stepId);
+  }
+}
+
+function handleLeaveHoverStep() {
+  if (cardRef.value && typeof cardRef.value.removeTemporaryHighlight === 'function') {
+    cardRef.value.removeTemporaryHighlight();
+  }
+}
 </script>
 
 <style>
 :root {
   --primary-color: rgb(31, 83, 157);
+  --primary-color-light: rgba(31, 83, 157, 0.7);
   --text-color: #333;
   --background-color: #fff;
   --border-color: #dee2e6;
