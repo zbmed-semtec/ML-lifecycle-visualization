@@ -12,26 +12,38 @@
         </div>
 
         <div class="modal-body">
-          <p class="text-start">{{ props.modalData[1] }}</p>
-          <div class="table-wrapper">
-            <table class="table" :style="{ backgroundColor: bgColor }">
-              <thead>
-                <tr>
-                  <th scope="col" :style="{ backgroundColor: bgAltColor }">Outcome</th>
-                  <th scope="col" :style="{ backgroundColor: bgAltColor }" v-if="props.modalData[3].length > 0">
-                    Notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td :style="{ backgroundColor: bgAltColor }">{{ props.modalData[2] }}</td>
-                  <td :style="{ backgroundColor: bgAltColor }" v-if="props.modalData[3].length > 0">
-                    {{ props.modalData[3] }}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <!-- Description Section -->
+          <div class="table-wrapper description-wrapper">
+            <div class="section-header">
+              <div class="section-title">Description</div>
+              <div class="section-subtitle">Overview of this ML lifecycle stage</div>
+            </div>
+            <p class="description-text">{{ props.modalData[1] }}</p>
+            <br>
+            <!-- Outcome & Notes Table -->
+            <div class="table-wrapper">
+              <table class="table" :style="{ backgroundColor: bgColor }">
+                <thead>
+                  <tr>
+                    <th scope="col" :style="{ backgroundColor: bgAltColor }">Outcome</th>
+                    <th scope="col" :style="{ backgroundColor: bgAltColor }" v-if="props.modalData[3].length > 0">
+                      Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td :style="{ backgroundColor: bgAltColor }">{{ props.modalData[2] }}</td>
+                    <td :style="{ backgroundColor: bgAltColor }" v-if="props.modalData[3].length > 0">
+                      {{ props.modalData[3] }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
+          
+          
+          <!-- FAIR Principles Section -->
           <div class="table-wrapper fair-principles-wrapper">
             <div class="section-header">
               <div class="section-title">FAIR Principles</div>
@@ -46,6 +58,8 @@
               </div>
             </div>
           </div>
+          
+          <!-- Next Steps Section -->
           <div class="table-wrapper next-steps-wrapper">
             <div class="section-header">
               <div class="section-title">Next steps</div>
@@ -226,7 +240,7 @@ function stopResize() {
 <style scoped>
 /* Two-column layout */
 .two-column-layout {
-  display: flex;
+  /* display: flex; */
   width: 100%;
 }
 
@@ -257,6 +271,22 @@ function stopResize() {
   font-size: 0.85rem;
 }
 
+/* Description section styling */
+.description-wrapper {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.description-text {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #495057;
+}
+
 /* FAIR Principles section styling */
 .fair-principles-wrapper {
   background-color: #f8f9fa;
@@ -273,7 +303,6 @@ function stopResize() {
 .fair-principles-content :deep(table) {
   margin-bottom: 0;
   background-color: transparent;
-  margin-right: 0;
   width: 100%;
 }
 
@@ -298,7 +327,7 @@ function stopResize() {
 .next-steps-wrapper {
   background-color: #f8f9fa;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 2rem;
   margin-top: 1.5rem;
 }
 
@@ -433,6 +462,11 @@ tr.selection:hover td#next-steps:last-child {
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
+}
+
+/* Also need to style the outcome table to match */
+.table-wrapper .table {
+  margin-bottom: 0.5rem;
 }
 
 /* Table styling */
