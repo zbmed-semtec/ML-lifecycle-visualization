@@ -1,22 +1,23 @@
 <template>
-  <div class="toppane">
-    <h1 class="font">MACHINE LEARNING LIFECYCLE</h1>
-    <br /><br />
-  </div>
-  <div>
-    <Card v-model:backgroundColor="modal.backgroundColor" v-model="selectedStep" />
-  </div>
-  <br /><br /><br /><br />
+  <div class="app-container">
+    <header class="app-header">
+      <h1 class="app-title">MACHINE LEARNING LIFECYCLE</h1>
+    </header>
+    
+    <div>
+      <Card v-model:backgroundColor="modal.backgroundColor" v-model="selectedStep" />
+    </div>
 
-  <div class="centered-table">
-    <Table v-if="data_lifecycle_info_sheet1" :data="data_lifecycle_info_sheet1" />
-    <p v-else>loading</p>
-  </div>
+    <div class="centered-table">
+      <Table v-if="data_lifecycle_info_sheet1" :data="data_lifecycle_info_sheet1" />
+      <div v-else class="loading">Loading data...</div>
+    </div>
 
-  <div>
-    <MetadataModal v-if="selectedStep >= 0 && data_lifecycle_info_sheet2.length > 0" v-model="selectedStep"
-      :modalData="getMetadataById(selectedStep)" :tableData="data_lifecycle_info_sheet1"
-      :edgesData="data_lifecycle_info_sheet3" :backgroundColor="modal.backgroundColor" :nodeNames="getNodeNames()" />
+    <div>
+      <MetadataModal v-if="selectedStep >= 0 && data_lifecycle_info_sheet2.length > 0" v-model="selectedStep"
+        :modalData="getMetadataById(selectedStep)" :tableData="data_lifecycle_info_sheet1"
+        :edgesData="data_lifecycle_info_sheet3" :backgroundColor="modal.backgroundColor" :nodeNames="getNodeNames()" />
+    </div>
   </div>
 </template>
 
@@ -97,65 +98,95 @@ function getNodeNames() {
 }
 </script>
 
-<style scoped>
-html {
-  font-family: "helvetica neue", helvetica, arial, sans-serif;
+<style>
+:root {
+  --primary-color: rgb(31, 83, 157);
+  --text-color: #333;
+  --background-color: #fff;
+  --border-color: #dee2e6;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --header-bg-color: #eaedf0;
+  --header-text-color: #2c3e50;
 }
 
-table {
-  margin-left: 3em;
-  margin-right: 3em;
+body {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+.app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.app-header {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.app-title {
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.5px;
 }
 
 .centered-table {
   display: grid;
   place-items: center;
+  margin: 2rem auto;
 }
 
-th,
-td {
-  border: 1px solid;
-  font-size: 15px;
-  /* border-collapse: collapse; */
+.loading {
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #6c757d;
+}
+
+/* Global table styles */
+table {
+  border-collapse: collapse;
+  box-shadow: 0 2px 10px var(--shadow-color);
 }
 
 th {
-  background-color: lightblue;
-  color: black;
+  background-color: var(--header-bg-color);
+  color: var(--header-text-color);
+  font-weight: 600;
+  border: 1px solid var(--border-color);
 }
 
 td {
-  text-align: center;
-  font-size: 15px;
+  border: 1px solid var(--border-color);
 }
 
-tr {
-  color: black;
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.font {
-  text-align: center;
-  color: rgb(31, 83, 157);
+/* Transitions */
+.transition {
+  display: grid;
+  place-items: center;
+  transition: transform ease-in-out 500ms;
 }
 
-.toppane {
-  width: 100%;
-  height: 100px;
+.transform {
+  transform: translateX(-350px);
 }
 
-.leftpane {
-  width: 50%;
-  height: 100px;
-  background-color: rgb(255, 238, 238);
-}
-
-.rightpane {
-  width: 50%;
-  height: 100vh;
-  background-color: rgb(222, 252, 209);
-}
-
-.whitespace {
-  height: 1020px;
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 1.8rem;
+  }
 }
 </style>
